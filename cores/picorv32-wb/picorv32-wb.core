@@ -1,0 +1,11 @@
+CAPI=1
+
+[main]
+description = PicoRV32 with Wishbone interface
+
+depend =
+  picorv32
+
+[verilog]
+src_files =
+ picorv32-wb.v
