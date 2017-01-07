@@ -1,0 +1,18 @@
+CAPI=1
+[main]
+
+name = vscale-wb-soc
+
+depend =
+  wb_riscvscale
+  or1k_bootloaders-0.9
+  uart16550-1.5.4
+  wb_intercon-1.0
+
+[verilog]
+src_files =
+  rtl/verilog/vscale_soc.v
+  rtl/verilog/wb_intercon/wb_intercon.v
+
+include_files =
+  rtl/verilog/wb_intercon/wb_intercon.vh
