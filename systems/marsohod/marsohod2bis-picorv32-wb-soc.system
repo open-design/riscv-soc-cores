@@ -1,0 +1,14 @@
+SAPI=1
+[main]
+name = marsohod2bis-picorv32-wb-soc
+description = RISC-V SoC for Marsohod2bis
+
+backend = quartus
+
+[quartus]
+family = "Cyclone IV E"
+device = EP4CE6E22C8
+sdc_files = data/marsohod2.sdc
+tcl_files = data/pinmap.tcl
+            data/options.tcl
+top_module = marsohod2_picorv32_wb_soc

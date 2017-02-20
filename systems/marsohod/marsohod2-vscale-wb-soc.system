@@ -1,0 +1,15 @@
+SAPI=1
+[main]
+name = marsohod2-vscale-wb-soc
+description = RISC-V SoC for Marsohod2
+
+backend = quartus
+
+[quartus]
+family = "Cyclone III"
+device = EP3C10E144C8
+sdc_files = data/marsohod2.sdc
+tcl_files = data/pinmap.tcl
+            data/options.tcl
+            data/vscale.tcl
+top_module = marsohod2_vscale_wb_soc
