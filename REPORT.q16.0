@@ -1,0 +1,129 @@
+
+build.q16.0/marsohod2bis-picorv32-wb-soc_0/bld-quartus
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Sun Feb 26 17:20:14 2017       ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; marsohod2bis-picorv32-wb-soc_0              ;
+; Top-level Entity Name              ; marsohod2_picorv32_wb_soc                   ;
+; Family                             ; Cyclone IV E                                ;
+; Device                             ; EP4CE6E22C8                                 ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 2,323 / 6,272 ( 37 % )                      ;
+;     Total combinational functions  ; 2,209 / 6,272 ( 35 % )                      ;
+;     Dedicated logic registers      ; 1,057 / 6,272 ( 17 % )                      ;
+; Total registers                    ; 1057                                        ;
+; Total pins                         ; 18 / 92 ( 20 % )                            ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 10,496 / 276,480 ( 4 % )                    ;
+; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                              ;
+; Total PLLs                         ; 1 / 2 ( 50 % )                              ;
++------------------------------------+---------------------------------------------+
+
++--------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                   ;
++-----------+-----------------+-------------------------------------------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name                                      ; Note ;
++-----------+-----------------+-------------------------------------------------+------+
+; 61.35 MHz ; 61.35 MHz       ; pll|altpll_component|auto_generated|pll1|clk[0] ;      ;
++-----------+-----------------+-------------------------------------------------+------+
+
+build.q16.0/marsohod2bis-vscale-wb-soc_0/bld-quartus
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Sun Feb 26 17:21:26 2017       ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; marsohod2bis-vscale-wb-soc_0                ;
+; Top-level Entity Name              ; marsohod2_vscale_wb_soc                     ;
+; Family                             ; Cyclone IV E                                ;
+; Device                             ; EP4CE6E22C8                                 ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 4,389 / 6,272 ( 70 % )                      ;
+;     Total combinational functions  ; 4,229 / 6,272 ( 67 % )                      ;
+;     Dedicated logic registers      ; 1,503 / 6,272 ( 24 % )                      ;
+; Total registers                    ; 1503                                        ;
+; Total pins                         ; 18 / 92 ( 20 % )                            ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 10,496 / 276,480 ( 4 % )                    ;
+; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                              ;
+; Total PLLs                         ; 1 / 2 ( 50 % )                              ;
++------------------------------------+---------------------------------------------+
+
++--------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                   ;
++-----------+-----------------+-------------------------------------------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name                                      ; Note ;
++-----------+-----------------+-------------------------------------------------+------+
+; 24.97 MHz ; 24.97 MHz       ; pll|altpll_component|auto_generated|pll1|clk[0] ;      ;
++-----------+-----------------+-------------------------------------------------+------+
+
+build.q16.0/marsohod3-picorv32-wb-soc_0/bld-quartus
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Sun Feb 26 17:22:51 2017       ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; marsohod3-picorv32-wb-soc_0                 ;
+; Top-level Entity Name              ; marsohod3_picorv32_wb_soc                   ;
+; Family                             ; MAX 10                                      ;
+; Device                             ; 10M50SAE144C8GES                            ;
+; Timing Models                      ; Preliminary                                 ;
+; Total logic elements               ; 2,878 / 49,760 ( 6 % )                      ;
+;     Total combinational functions  ; 2,767 / 49,760 ( 6 % )                      ;
+;     Dedicated logic registers      ; 1,089 / 49,760 ( 2 % )                      ;
+; Total registers                    ; 1089                                        ;
+; Total pins                         ; 18 / 101 ( 18 % )                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 2,304 / 1,677,312 ( < 1 % )                 ;
+; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
+; Total PLLs                         ; 1 / 1 ( 100 % )                             ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0 / 1 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
+
++--------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                   ;
++-----------+-----------------+-------------------------------------------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name                                      ; Note ;
++-----------+-----------------+-------------------------------------------------+------+
+; 71.96 MHz ; 71.96 MHz       ; pll|altpll_component|auto_generated|pll1|clk[0] ;      ;
++-----------+-----------------+-------------------------------------------------+------+
+
+build.q16.0/marsohod3-vscale-wb-soc_0/bld-quartus
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Sun Feb 26 17:24:52 2017       ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; marsohod3-vscale-wb-soc_0                   ;
+; Top-level Entity Name              ; marsohod3_vscale_wb_soc                     ;
+; Family                             ; MAX 10                                      ;
+; Device                             ; 10M50SAE144C8GES                            ;
+; Timing Models                      ; Preliminary                                 ;
+; Total logic elements               ; 5,047 / 49,760 ( 10 % )                     ;
+;     Total combinational functions  ; 4,903 / 49,760 ( 10 % )                     ;
+;     Dedicated logic registers      ; 1,535 / 49,760 ( 3 % )                      ;
+; Total registers                    ; 1535                                        ;
+; Total pins                         ; 18 / 101 ( 18 % )                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 2,304 / 1,677,312 ( < 1 % )                 ;
+; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
+; Total PLLs                         ; 1 / 1 ( 100 % )                             ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0 / 1 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
+
++--------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                   ;
++-----------+-----------------+-------------------------------------------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name                                      ; Note ;
++-----------+-----------------+-------------------------------------------------+------+
+; 26.62 MHz ; 26.62 MHz       ; pll|altpll_component|auto_generated|pll1|clk[0] ;      ;
++-----------+-----------------+-------------------------------------------------+------+
+

@@ -1,0 +1,18 @@
+Fitter Status : Successful - Sun Feb 26 17:22:43 2017
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Revision Name : marsohod3-picorv32-wb-soc_0
+Top-level Entity Name : marsohod3_picorv32_wb_soc
+Family : MAX 10
+Device : 10M50SAE144C8GES
+Timing Models : Preliminary
+Total logic elements : 2,878 / 49,760 ( 6 % )
+    Total combinational functions : 2,767 / 49,760 ( 6 % )
+    Dedicated logic registers : 1,089 / 49,760 ( 2 % )
+Total registers : 1089
+Total pins : 18 / 101 ( 18 % )
+Total virtual pins : 0
+Total memory bits : 2,304 / 1,677,312 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 1 / 1 ( 100 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

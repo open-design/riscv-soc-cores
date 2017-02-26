@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Feb 26 17:20:53 2017
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Revision Name : marsohod2bis-vscale-wb-soc_0
+Top-level Entity Name : marsohod2_vscale_wb_soc
+Family : Cyclone IV E
+Total logic elements : 4,568
+    Total combinational functions : 4,225
+    Dedicated logic registers : 1,503
+Total registers : 1503
+Total pins : 18
+Total virtual pins : 0
+Total memory bits : 10,496
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

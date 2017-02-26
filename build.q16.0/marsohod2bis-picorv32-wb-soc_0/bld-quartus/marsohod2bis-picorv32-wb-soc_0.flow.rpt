@@ -1,0 +1,126 @@
+Flow report for marsohod2bis-picorv32-wb-soc_0
+Sun Feb 26 17:20:18 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Sun Feb 26 17:20:14 2017       ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; marsohod2bis-picorv32-wb-soc_0              ;
+; Top-level Entity Name              ; marsohod2_picorv32_wb_soc                   ;
+; Family                             ; Cyclone IV E                                ;
+; Device                             ; EP4CE6E22C8                                 ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 2,323 / 6,272 ( 37 % )                      ;
+;     Total combinational functions  ; 2,209 / 6,272 ( 35 % )                      ;
+;     Dedicated logic registers      ; 1,057 / 6,272 ( 17 % )                      ;
+; Total registers                    ; 1057                                        ;
+; Total pins                         ; 18 / 92 ( 20 % )                            ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 10,496 / 276,480 ( 4 % )                    ;
+; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                              ;
+; Total PLLs                         ; 1 / 2 ( 50 % )                              ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------+
+; Flow Settings                                      ;
++-------------------+--------------------------------+
+; Option            ; Setting                        ;
++-------------------+--------------------------------+
+; Start date & time ; 02/26/2017 17:19:25            ;
+; Main task         ; Compilation                    ;
+; Revision Name     ; marsohod2bis-picorv32-wb-soc_0 ;
++-------------------+--------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                  ;
++------------------------------------+--------------------------------------------------+--------------------------------+-------------+------------+
+; Assignment Name                    ; Value                                            ; Default Value                  ; Entity Name ; Section Id ;
++------------------------------------+--------------------------------------------------+--------------------------------+-------------+------------+
+; AUTO_RAM_BLOCK_BALANCING           ; Off                                              ; On                             ; --          ; --         ;
+; COMPILER_SIGNATURE_ID              ; 264840329988373.148811876506379                  ; --                             ; --          ; --         ;
+; FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS ; On                                               ; Off                            ; --          ; --         ;
+; SEARCH_PATH                        ; ../src/or1k_bootloaders_0.9/                     ; --                             ; --          ; --         ;
+; SEARCH_PATH                        ; ../src/riscv-nmon_0/                             ; --                             ; --          ; --         ;
+; SEARCH_PATH                        ; ../src/uart16550_1.5.4/rtl/verilog               ; --                             ; --          ; --         ;
+; SEARCH_PATH                        ; ../src/verilog_utils_0/                          ; --                             ; --          ; --         ;
+; SEARCH_PATH                        ; ../src/wb_common_0/                              ; --                             ; --          ; --         ;
+; SEARCH_PATH                        ; ../src/picorv32-wb-soc_0/rtl/verilog/wb_intercon ; --                             ; --          ; --         ;
+; TOP_LEVEL_ENTITY                   ; marsohod2_picorv32_wb_soc                        ; marsohod2bis-picorv32-wb-soc_0 ; --          ; --         ;
++------------------------------------+--------------------------------------------------+--------------------------------+-------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:29     ; 1.0                     ; 1247 MB             ; 00:00:52                           ;
+; Fitter                    ; 00:00:16     ; 1.0                     ; 1391 MB             ; 00:00:16                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 1074 MB             ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 1119 MB             ; 00:00:03                           ;
+; Total                     ; 00:00:50     ; --                      ; --                  ; 00:01:12                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                                     ;
++---------------------------+------------------+------------------+------------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name          ; OS Version       ; Processor type ;
++---------------------------+------------------+------------------+------------------+----------------+
+; Analysis & Synthesis      ; cinco            ; Debian GNU/Linux ; Debian GNU/Linux ; x86_64         ;
+; Fitter                    ; cinco            ; Debian GNU/Linux ; Debian GNU/Linux ; x86_64         ;
+; Assembler                 ; cinco            ; Debian GNU/Linux ; Debian GNU/Linux ; x86_64         ;
+; TimeQuest Timing Analyzer ; cinco            ; Debian GNU/Linux ; Debian GNU/Linux ; x86_64         ;
++---------------------------+------------------+------------------+------------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map marsohod2bis-picorv32-wb-soc_0
+quartus_fit marsohod2bis-picorv32-wb-soc_0
+quartus_asm marsohod2bis-picorv32-wb-soc_0
+quartus_sta marsohod2bis-picorv32-wb-soc_0
+
+
+

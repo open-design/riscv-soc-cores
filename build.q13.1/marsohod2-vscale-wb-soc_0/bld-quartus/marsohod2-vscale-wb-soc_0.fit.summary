@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sun Feb 26 17:27:05 2017
+Quartus II 32-bit Version : 13.1.4 Build 182 03/12/2014 SJ Web Edition
+Revision Name : marsohod2-vscale-wb-soc_0
+Top-level Entity Name : marsohod2_vscale_wb_soc
+Family : Cyclone III
+Device : EP3C10E144C8
+Timing Models : Final
+Total logic elements : 4,355 / 10,320 ( 42 % )
+    Total combinational functions : 4,234 / 10,320 ( 41 % )
+    Dedicated logic registers : 1,503 / 10,320 ( 15 % )
+Total registers : 1503
+Total pins : 18 / 95 ( 19 % )
+Total virtual pins : 0
+Total memory bits : 10,496 / 423,936 ( 2 % )
+Embedded Multiplier 9-bit elements : 0 / 46 ( 0 % )
+Total PLLs : 1 / 2 ( 50 % )

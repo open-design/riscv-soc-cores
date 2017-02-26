@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sun Feb 26 17:20:10 2017
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Revision Name : marsohod2bis-picorv32-wb-soc_0
+Top-level Entity Name : marsohod2_picorv32_wb_soc
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 2,323 / 6,272 ( 37 % )
+    Total combinational functions : 2,209 / 6,272 ( 35 % )
+    Dedicated logic registers : 1,057 / 6,272 ( 17 % )
+Total registers : 1057
+Total pins : 18 / 92 ( 20 % )
+Total virtual pins : 0
+Total memory bits : 10,496 / 276,480 ( 4 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 1 / 2 ( 50 % )

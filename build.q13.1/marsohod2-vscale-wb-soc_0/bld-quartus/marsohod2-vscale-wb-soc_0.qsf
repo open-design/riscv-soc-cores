@@ -1,0 +1,105 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2014 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 32-bit
+# Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+# Date created = 17:26:06  February 26, 2017
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		marsohod2-vscale-wb-soc_0_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone III"
+set_global_assignment -name DEVICE EP3C10E144C8
+set_global_assignment -name TOP_LEVEL_ENTITY marsohod2_vscale_wb_soc
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:26:06  FEBRUARY 26, 2017"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name VERILOG_FILE ../src/or1k_bootloaders_0.9/wb_bootrom.v
+set_global_assignment -name VERILOG_FILE ../src/uart16550_1.5.4/rtl/verilog/raminfr.v
+set_global_assignment -name VERILOG_FILE ../src/uart16550_1.5.4/rtl/verilog/uart_receiver.v
+set_global_assignment -name VERILOG_FILE ../src/uart16550_1.5.4/rtl/verilog/uart_regs.v
+set_global_assignment -name VERILOG_FILE ../src/uart16550_1.5.4/rtl/verilog/uart_rfifo.v
+set_global_assignment -name VERILOG_FILE ../src/uart16550_1.5.4/rtl/verilog/uart_sync_flops.v
+set_global_assignment -name VERILOG_FILE ../src/uart16550_1.5.4/rtl/verilog/uart_tfifo.v
+set_global_assignment -name VERILOG_FILE ../src/uart16550_1.5.4/rtl/verilog/uart_top.v
+set_global_assignment -name VERILOG_FILE ../src/uart16550_1.5.4/rtl/verilog/uart_transmitter.v
+set_global_assignment -name VERILOG_FILE ../src/uart16550_1.5.4/rtl/verilog/uart_wb.v
+set_global_assignment -name VERILOG_FILE "../src/verilog-arbiter_0-r1/src/arbiter.v"
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/wb_vscale.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_alu.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_csr_file.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_ctrl.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_imm_gen.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_mul_div.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_PC_mux.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_pipeline.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_regfile.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_src_a_mux.v
+set_global_assignment -name VERILOG_FILE ../src/wb_riscvscale_0/vscale_src_b_mux.v
+set_global_assignment -name VERILOG_FILE ../src/wb_intercon_1.0/rtl/verilog/wb_arbiter.v
+set_global_assignment -name VERILOG_FILE ../src/wb_intercon_1.0/rtl/verilog/wb_data_resize.v
+set_global_assignment -name VERILOG_FILE ../src/wb_intercon_1.0/rtl/verilog/wb_upsizer.v
+set_global_assignment -name VERILOG_FILE ../src/wb_intercon_1.0/rtl/verilog/wb_mux.v
+set_global_assignment -name VERILOG_FILE "../src/vscale-wb-soc_0/rtl/verilog/vscale_soc.v"
+set_global_assignment -name VERILOG_FILE "../src/vscale-wb-soc_0/rtl/verilog/wb_intercon/wb_intercon.v"
+set_global_assignment -name VERILOG_FILE "../src/marsohod2-vscale-wb-soc_0/rtl/verilog/aux.v"
+set_global_assignment -name VERILOG_FILE "../src/marsohod2-vscale-wb-soc_0/rtl/verilog/marsohod2_vscale_wb_soc.v"
+set_global_assignment -name VERILOG_FILE "../src/marsohod2-vscale-wb-soc_0/rtl/verilog/cyclone3-altpll/altpll0.v"
+set_global_assignment -name SDC_FILE "../src/marsohod2-vscale-wb-soc_0/data/marsohod2.sdc"
+set_location_assignment PIN_25 -to CLK100MHZ
+set_location_assignment PIN_83 -to LED[2]
+set_location_assignment PIN_84 -to LED[1]
+set_location_assignment PIN_85 -to LED[0]
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_location_assignment PIN_101 -to IO[0]
+set_location_assignment PIN_103 -to IO[1]
+set_location_assignment PIN_104 -to IO[2]
+set_location_assignment PIN_105 -to IO[3]
+set_location_assignment PIN_106 -to IO[4]
+set_location_assignment PIN_110 -to IO[5]
+set_location_assignment PIN_111 -to IO[6]
+set_location_assignment PIN_112 -to IO[7]
+set_location_assignment PIN_24 -to FTDI_BD0
+set_location_assignment PIN_28 -to FTDI_BD1
+set_location_assignment PIN_11 -to FTDI_BD2
+set_location_assignment PIN_10 -to FTDI_BD3
+set_global_assignment -name FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS ON
+set_global_assignment -name AUTO_RAM_BLOCK_BALANCING OFF
+set_global_assignment -name GENERATE_CONFIG_SVF_FILE ON
+set_global_assignment -name GENERATE_SVF_FILE ON
+set_global_assignment -name VERILOG_MACRO SYNTHESIS
+set_global_assignment -name SEARCH_PATH ../src/or1k_bootloaders_0.9/
+set_global_assignment -name SEARCH_PATH "../src/riscv-nmon_0/"
+set_global_assignment -name SEARCH_PATH ../src/uart16550_1.5.4/rtl/verilog
+set_global_assignment -name SEARCH_PATH ../src/verilog_utils_0/
+set_global_assignment -name SEARCH_PATH ../src/wb_common_0/
+set_global_assignment -name SEARCH_PATH ../src/wb_riscvscale_0/
+set_global_assignment -name SEARCH_PATH "../src/vscale-wb-soc_0/rtl/verilog/wb_intercon"

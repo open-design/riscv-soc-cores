@@ -1,0 +1,24 @@
+Warning (10268): Verilog HDL information at axi4_memory.v(149): always construct contains both blocking and non-blocking assignments File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/axi4_memory.v Line: 149
+Warning (10273): Verilog HDL warning at picorv32.v(265): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 265
+Warning (10273): Verilog HDL warning at picorv32.v(285): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 285
+Warning (10273): Verilog HDL warning at picorv32.v(292): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 292
+Warning (10273): Verilog HDL warning at picorv32.v(351): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 351
+Warning (10273): Verilog HDL warning at picorv32.v(353): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 353
+Warning (10273): Verilog HDL warning at picorv32.v(995): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 995
+Warning (10273): Verilog HDL warning at picorv32.v(1204): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1204
+Warning (10273): Verilog HDL warning at picorv32.v(1221): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1221
+Warning (10273): Verilog HDL warning at picorv32.v(1260): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1260
+Warning (10273): Verilog HDL warning at picorv32.v(1291): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1291
+Warning (10273): Verilog HDL warning at picorv32.v(1306): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1306
+Warning (10273): Verilog HDL warning at picorv32.v(1307): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1307
+Warning (10273): Verilog HDL warning at picorv32.v(1319): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1319
+Warning (10273): Verilog HDL warning at picorv32.v(1320): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1320
+Warning (10273): Verilog HDL warning at picorv32.v(1338): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1338
+Warning (10273): Verilog HDL warning at picorv32.v(1339): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1339
+Warning (10273): Verilog HDL warning at picorv32.v(1342): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1342
+Warning (10273): Verilog HDL warning at picorv32.v(1363): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1363
+Warning (10273): Verilog HDL warning at picorv32.v(1488): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1488
+Warning (10273): Verilog HDL warning at picorv32.v(1489): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1489
+Warning (10273): Verilog HDL warning at picorv32.v(1875): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1875
+Warning (10268): Verilog HDL information at picorv32.v(1304): always construct contains both blocking and non-blocking assignments File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 1304
+Warning (10273): Verilog HDL warning at picorv32.v(2260): extended using "x" or "z" File: /home/antony/riscv/riscv-soc-cores/build/marsohod2bis-picorv32-wb-soc_0/src/picorv32_0/picorv32.v Line: 2260

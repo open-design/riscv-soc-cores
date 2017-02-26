@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Feb 26 17:25:30 2017
+Quartus II 32-bit Version : 13.1.4 Build 182 03/12/2014 SJ Web Edition
+Revision Name : marsohod2-picorv32-wb-soc_0
+Top-level Entity Name : marsohod2_picorv32_wb_soc
+Family : Cyclone III
+Total logic elements : 2,462
+    Total combinational functions : 2,224
+    Dedicated logic registers : 1,057
+Total registers : 1057
+Total pins : 18
+Total virtual pins : 0
+Total memory bits : 10,496
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

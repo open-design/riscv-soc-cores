@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Sun Feb 26 17:23:44 2017
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Revision Name : marsohod3-vscale-wb-soc_0
+Top-level Entity Name : marsohod3_vscale_wb_soc
+Family : MAX 10
+Total logic elements : 5,242
+    Total combinational functions : 4,899
+    Dedicated logic registers : 1,535
+Total registers : 1535
+Total pins : 18
+Total virtual pins : 0
+Total memory bits : 2,304
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1
+UFM blocks : 0
+ADC blocks : 0
