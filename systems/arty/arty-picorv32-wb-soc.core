@@ -1,0 +1,27 @@
+CAPI=1
+
+[main]
+name = arty-picorv32-wb-soc
+description = RISC-V SoC for Xilinx/Digilent Arty board
+
+depend =
+  picorv32-wb-soc
+  riscv-nmon
+
+backend = vivado
+
+[vivado]
+part = "xc7a35tcsg324-1"
+hw_device = xc7a35t_0
+top_module = arty_picorv32_wb_soc
+
+[fileset constraints]
+usage = vivado
+file_type = xdc
+files =
+  data/pins.xdc
+
+[verilog]
+src_files =
+  rtl/verilog/arty_picorv32_wb_soc.v
+  rtl/verilog/plle2_base_wb_clkgen.v
