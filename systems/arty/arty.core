@@ -1,0 +1,16 @@
+CAPI=1
+
+[main]
+depend =
+  picorv32-wb-soc
+  riscv-nmon
+
+[verilog]
+src_files =
+  rtl/arty_top.v
+
+[fileset constraints]
+usage = vivado
+file_type = xdc
+files =
+  data/pins.xdc
