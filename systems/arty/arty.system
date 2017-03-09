@@ -1,0 +1,11 @@
+SAPI=1
+[main]
+name = arty
+description = "Xilinx/Digilent Arty board RISC-V SoC"
+
+backend = vivado
+
+[vivado]
+part = "xc7a35tcsg324-1"
+hw_device = xc7a35t_0
+top_module = arty_top
