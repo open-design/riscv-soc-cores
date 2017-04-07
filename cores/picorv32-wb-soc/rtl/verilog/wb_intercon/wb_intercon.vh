@@ -36,6 +36,18 @@ wire [31:0] wb_s2m_rom0_dat;
 wire        wb_s2m_rom0_ack;
 wire        wb_s2m_rom0_err;
 wire        wb_s2m_rom0_rty;
+wire [31:0] wb_m2s_sram0_adr;
+wire [31:0] wb_m2s_sram0_dat;
+wire  [3:0] wb_m2s_sram0_sel;
+wire        wb_m2s_sram0_we;
+wire        wb_m2s_sram0_cyc;
+wire        wb_m2s_sram0_stb;
+wire  [2:0] wb_m2s_sram0_cti;
+wire  [1:0] wb_m2s_sram0_bte;
+wire [31:0] wb_s2m_sram0_dat;
+wire        wb_s2m_sram0_ack;
+wire        wb_s2m_sram0_err;
+wire        wb_s2m_sram0_rty;
 
 wb_intercon wb_intercon0
    (.wb_clk_i          (wb_clk),
@@ -75,5 +87,17 @@ wb_intercon wb_intercon0
     .wb_rom0_dat_i     (wb_s2m_rom0_dat),
     .wb_rom0_ack_i     (wb_s2m_rom0_ack),
     .wb_rom0_err_i     (wb_s2m_rom0_err),
-    .wb_rom0_rty_i     (wb_s2m_rom0_rty));
+    .wb_rom0_rty_i     (wb_s2m_rom0_rty),
+    .wb_sram0_adr_o    (wb_m2s_sram0_adr),
+    .wb_sram0_dat_o    (wb_m2s_sram0_dat),
+    .wb_sram0_sel_o    (wb_m2s_sram0_sel),
+    .wb_sram0_we_o     (wb_m2s_sram0_we),
+    .wb_sram0_cyc_o    (wb_m2s_sram0_cyc),
+    .wb_sram0_stb_o    (wb_m2s_sram0_stb),
+    .wb_sram0_cti_o    (wb_m2s_sram0_cti),
+    .wb_sram0_bte_o    (wb_m2s_sram0_bte),
+    .wb_sram0_dat_i    (wb_s2m_sram0_dat),
+    .wb_sram0_ack_i    (wb_s2m_sram0_ack),
+    .wb_sram0_err_i    (wb_s2m_sram0_err),
+    .wb_sram0_rty_i    (wb_s2m_sram0_rty));
 
