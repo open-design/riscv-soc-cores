@@ -35,17 +35,13 @@ BUILD=build.$QUARTUS_NAME
 
 rm -rf build
 fusesoc --cores-root cores/ build marsohod2bis-picorv32-wb-soc
-fusesoc --cores-root cores/ build marsohod2bis-vscale-wb-soc
 fusesoc --cores-root cores/ build marsohod3-picorv32-wb-soc
-fusesoc --cores-root cores/ build marsohod3-vscale-wb-soc
 mv build $BUILD
 
 REPORT=REPORT.$QUARTUS_NAME
 echo > $REPORT
 report_board $BUILD/marsohod2bis-picorv32-wb-soc_0/bld-quartus 19 | tee -a $REPORT
-report_board $BUILD/marsohod2bis-vscale-wb-soc_0/bld-quartus 19 | tee -a $REPORT
 report_board $BUILD/marsohod3-picorv32-wb-soc_0/bld-quartus 21 | tee -a $REPORT
-report_board $BUILD/marsohod3-vscale-wb-soc_0/bld-quartus 21 | tee -a $REPORT
 
 QV=13.1
 export PATH=$SAVE_PATH:/opt/altera/$QV/quartus/bin
@@ -54,14 +50,10 @@ BUILD=build.$QUARTUS_NAME
 
 rm -rf build
 fusesoc --cores-root cores/ build marsohod2-picorv32-wb-soc
-fusesoc --cores-root cores/ build marsohod2-vscale-wb-soc
 fusesoc --cores-root cores/ build marsohod2bis-picorv32-wb-soc
-fusesoc --cores-root cores/ build marsohod2bis-vscale-wb-soc
 mv build $BUILD
 
 REPORT=REPORT.$QUARTUS_NAME
 echo > $REPORT
 report_board $BUILD/marsohod2-picorv32-wb-soc_0/bld-quartus 19 | tee -a $REPORT
-report_board $BUILD/marsohod2-vscale-wb-soc_0/bld-quartus 19 | tee -a $REPORT
 report_board $BUILD/marsohod2bis-picorv32-wb-soc_0/bld-quartus 19 | tee -a $REPORT
-report_board $BUILD/marsohod2bis-vscale-wb-soc_0/bld-quartus 19 | tee -a $REPORT
