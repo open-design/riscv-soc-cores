@@ -16,6 +16,7 @@ module picorv32_wb_soc #(
 	wire wb_rst;
 	assign wb_rst = reset;
 
+`include "wb_common_params.v"
 `include "wb_intercon.vh"
 
 	wb_ram #(
@@ -83,6 +84,7 @@ module picorv32_wb_soc #(
 		.wbm_we_o(wb_m2s_picorv32_we),
 		.wbm_sel_o(wb_m2s_picorv32_sel)
 	);
+	assign wb_m2s_picorv32_cti = CTI_CLASSIC;
 
 	assign wb_iadr_o = wb_m2s_picorv32_adr;
 endmodule
