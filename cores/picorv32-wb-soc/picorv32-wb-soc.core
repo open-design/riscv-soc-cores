@@ -7,6 +7,9 @@ depend =
   uart16550-1.5.4
   wb_ram-1.0
   wb_intercon-1.0
+  riscv-nmon
+
+simulators = icarus
 
 [verilog]
 src_files =
@@ -15,3 +18,12 @@ src_files =
 
 include_files =
   rtl/verilog/wb_intercon/wb_intercon.vh
+
+tb_private_src_files =
+  bench/picorv32_wb_soc_tb.v
+
+[icarus]
+iverilog_options = -DPRESCALER_PRESET_HARD -DPRESCALER_HIGH_PRESET=0 -DPRESCALER_LOW_PRESET=2
+
+[simulator]
+toplevel = picorv32_wb_soc_tb

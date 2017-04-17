@@ -35,8 +35,8 @@ $ sudo apt-get install libelf-dev
 Simulation:
 
 ```
-$ fusesoc --cores-root cores/ sim marsohod2-picorv32-wb-soc
-$ gtkwave build/marsohod2-picorv32-wb-soc_0/sim-icarus/picorv32-wb-soc.vcd
+$ fusesoc --cores-root cores/ sim picorv32-wb-soc
+$ gtkwave build/picorv32-wb-soc_0/sim-icarus/picorv32-wb-soc.vcd
 ```
 
 
