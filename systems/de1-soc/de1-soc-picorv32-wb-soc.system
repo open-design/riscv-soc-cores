@@ -1,0 +1,15 @@
+SAPI=1
+[main]
+name = de1-soc-picorv32-wb-soc
+description = RISC-V SoC for DE1-SoC
+
+backend = quartus
+
+[quartus]
+family = "Cyclone V"
+device = 5CSEMA5F31C6
+sdc_files = data/de1-soc.sdc
+tcl_files = data/de1-soc-pinmap.tcl
+            data/options.tcl
+top_module = de1_soc_picorv32_wb_soc
+quartus_options = --64bit
