@@ -15,12 +15,16 @@ module  pll10MHz(
 	output wire locked
 );
 
+	/*
+	 * Magic UART CLK is 23.9616 MHz (13 * 16 * 115200),
+	 * altera_pll offers 24.0 MHz or 23.962264 MHz
+	 */
 	altera_pll #(
 		.fractional_vco_multiplier("false"),
 		.reference_clock_frequency("50.0 MHz"),
-		.operation_mode("direct"),
+		.operation_mode("normal"),
 		.number_of_clocks(1),
-		.output_clock_frequency0("10.000000 MHz"),
+		.output_clock_frequency0("24.0 MHz"),
 		.phase_shift0("0 ps"),
 		.duty_cycle0(50),
 		.output_clock_frequency1("0 MHz"),

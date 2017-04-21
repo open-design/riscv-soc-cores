@@ -21,7 +21,7 @@ module de1_soc_picorv32_wb_soc(
 	reset mreset(slow_clock, my_reset);
 
 	picorv32_wb_soc #(
-		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_10MHz_9600.txt"),
+		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024)
 	)
 	soc(
