@@ -4,3 +4,4 @@ CAPI=1
 [verilog]
 include_files =
   nmon_picorv32-wb-soc_10MHz_9600.txt
+  nmon_picorv32-wb-soc_24MHz_115200.txt
