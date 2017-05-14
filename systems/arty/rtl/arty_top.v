@@ -38,9 +38,9 @@ module clk_gen_sys(
 		.BANDWIDTH ("OPTIMIZED"),
 		.STARTUP_WAIT ("FALSE"),
 		.DIVCLK_DIVIDE (5),
-		.CLKFBOUT_MULT (41),
+		.CLKFBOUT_MULT (42),
 		.CLKFBOUT_PHASE (0.000),
-		.CLKOUT0_DIVIDE (82),
+		.CLKOUT0_DIVIDE (35),
 		.CLKOUT0_PHASE (0.000),
 		.CLKOUT0_DUTY_CYCLE (0.500),
 		.CLKIN1_PERIOD (10.000)
@@ -91,7 +91,7 @@ module arty_top(
 	reset mreset(clk10m, my_reset);
 
 	picorv32_wb_soc #(
-		.BOOTROM_MEMFILE ("../../src/riscv-nmon_0/nmon_picorv32-wb-soc_10MHz_9600.txt"),
+		.BOOTROM_MEMFILE ("../../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024)
 	)
 	soc(
