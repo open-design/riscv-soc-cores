@@ -1,0 +1,24 @@
+CAPI=1
+
+[main]
+name = de1-picorv32-wb-soc
+description = RISC-V SoC for Terasic DE1
+
+depend =
+  altera_clkgen
+  picorv32-wb-soc
+  riscv-nmon
+
+backend = quartus
+
+[quartus]
+family = "Cyclone II"
+device = EP2C20F484C7
+sdc_files = data/de1.sdc
+tcl_files = data/de1-pinmap.tcl
+            data/options.tcl
+top_module = de1_picorv32_wb_soc
+
+[verilog]
+src_files =
+  rtl/verilog/de1_picorv32_wb_soc.v
