@@ -1,4 +1,5 @@
 module picorv32_wb_soc #(
+	parameter SIM = 0,
 	parameter PROGADDR_RESET = 32'h 0000_0000,
 	parameter BOOTROM_MEMFILE = "",
 	parameter BOOTROM_MEMDEPTH = 1024,
@@ -55,7 +56,10 @@ module picorv32_wb_soc #(
 		.wb_ack_o(wb_s2m_rom0_ack)
 	);
 
-	uart_top uart16550(
+	uart_top #(
+		.SIM (SIM)
+	)
+	uart16550(
 		.wb_clk_i(wb_clk),
 		.wb_rst_i(wb_rst),
 
