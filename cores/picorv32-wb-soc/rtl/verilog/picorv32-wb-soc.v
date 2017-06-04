@@ -1,4 +1,5 @@
 module picorv32_wb_soc #(
+	parameter PROGADDR_RESET = 32'h 0000_0000,
 	parameter BOOTROM_MEMFILE = "",
 	parameter BOOTROM_MEMDEPTH = 1024,
 	parameter SRAM0_MEMDEPTH = 16384
@@ -72,6 +73,7 @@ module picorv32_wb_soc #(
 	);
 
 	picorv32_wb #(
+		.PROGADDR_RESET (PROGADDR_RESET),
 		.ENABLE_MUL (1),
 		.ENABLE_DIV (1)
 	)
