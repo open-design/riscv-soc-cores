@@ -71,7 +71,11 @@ module picorv32_wb_soc #(
 		.srx_pad_i(uart_rx)
 	);
 
-	picorv32_wb picorv32_wb(
+	picorv32_wb #(
+		.ENABLE_MUL (1),
+		.ENABLE_DIV (1)
+	)
+	picorv32_wb (
 		.wb_clk_i(wb_clk),
 		.wb_rst_i(wb_rst),
 
