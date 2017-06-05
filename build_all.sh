@@ -43,6 +43,6 @@ build_quartus()
 }
 
 build_quartus q16.0 /opt/altera/16.0/quartus/bin \
-	marsohod2bis-picorv32-wb-soc,marsohod3-picorv32-wb-soc
+	marsohod2bis-picorv32-wb-soc,marsohod3-picorv32-wb-soc,de1-soc-picorv32-wb-soc
 build_quartus q13.1 /opt/altera/13.1/quartus/bin \
-	marsohod2-picorv32-wb-soc,marsohod2bis-picorv32-wb-soc
+	marsohod2-picorv32-wb-soc,marsohod2bis-picorv32-wb-soc,de1-soc-picorv32-wb-soc
