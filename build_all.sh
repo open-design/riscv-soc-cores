@@ -1,59 +1,48 @@
-#!/bin/sh
+#!/bin/bash
 
 set -x
 set -e
 
-report_board()
+quartus_report()
 {
 	PROJ=$1
-	NUM_COLUMNS=$2
-
-# Quartus 13.3:
-#   marsohod2 -> NUM_COLUMNS=19
-#   de0-nano  -> NUM_COLUMNS=19
-#   de1-soc   -> NUM_COLUMNS=22
-# Quartus 16.0:
-#   de0-nano  -> NUM_COLUMNS=19
-#   de1-soc   -> NUM_COLUMNS=22
-#   marsohod3 -> NUM_COLUMNS=21
 
 	echo $PROJ
 	echo
 
-	grep -B 1 -A $NUM_COLUMNS "; Flow Summary" $PROJ/*.flow.rpt
-	grep -B 1 -A 5 "; Slow .* 85C Model Fmax Summary" $PROJ/*.sta.rpt | sed "s/^.*.sta.rpt.//"
+	awk 'seen {print} /^; Flow Summary/ {seen = 1; print "Flow Summary"} /^$/ {seen = 0}' $PROJ/*.flow.rpt
+	grep -B 1 -A 5 "; .*Model Fmax Summary" $PROJ/*.sta.rpt | sed "s/^.*.sta.rpt.//"
 
 	echo
 }
 
-SAVE_PATH=$PATH
+build_quartus()
+{
+	QUARTUS_NAME=$1
+	QUARTUS_PATH=$2
+	SYSTEMS=$3
 
-QV=16.0
-export PATH=$SAVE_PATH:/opt/altera/$QV/quartus/bin
-QUARTUS_NAME=q$QV
-BUILD=build.$QUARTUS_NAME
+	SAVE_PATH=$PATH
+	export PATH=$SAVE_PATH:$QUARTUS_PATH
+	BUILD=build.$QUARTUS_NAME
 
-rm -rf build
-fusesoc --cores-root cores/ build marsohod2bis-picorv32-wb-soc
-fusesoc --cores-root cores/ build marsohod3-picorv32-wb-soc
-mv build $BUILD
+	rm -rf build
+	for i in $(echo $SYSTEMS | sed "s/,/ /g"); do
+		fusesoc --cores-root cores/ build $i
+	done
 
-REPORT=REPORT.$QUARTUS_NAME
-echo > $REPORT
-report_board $BUILD/marsohod2bis-picorv32-wb-soc_0/bld-quartus 19 | tee -a $REPORT
-report_board $BUILD/marsohod3-picorv32-wb-soc_0/bld-quartus 21 | tee -a $REPORT
+	rm -rf $BUILD
+	mv build $BUILD
 
-QV=13.1
-export PATH=$SAVE_PATH:/opt/altera/$QV/quartus/bin
-QUARTUS_NAME=q$QV
-BUILD=build.$QUARTUS_NAME
+	REPORT=REPORT.$QUARTUS_NAME
+	echo > $REPORT
+	for i in $(echo $SYSTEMS | sed "s/,/ /g"); do
+		quartus_report $BUILD/${i}_0/bld-quartus | tee -a $REPORT
+	done
+	export PATH=$SAVE_PATH
+}
 
-rm -rf build
-fusesoc --cores-root cores/ build marsohod2-picorv32-wb-soc
-fusesoc --cores-root cores/ build marsohod2bis-picorv32-wb-soc
-mv build $BUILD
-
-REPORT=REPORT.$QUARTUS_NAME
-echo > $REPORT
-report_board $BUILD/marsohod2-picorv32-wb-soc_0/bld-quartus 19 | tee -a $REPORT
-report_board $BUILD/marsohod2bis-picorv32-wb-soc_0/bld-quartus 19 | tee -a $REPORT
+build_quartus q16.0 /opt/altera/16.0/quartus/bin \
+	marsohod2bis-picorv32-wb-soc,marsohod3-picorv32-wb-soc
+build_quartus q13.1 /opt/altera/13.1/quartus/bin \
+	marsohod2-picorv32-wb-soc,marsohod2bis-picorv32-wb-soc
