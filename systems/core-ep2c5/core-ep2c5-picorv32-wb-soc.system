@@ -1,0 +1,14 @@
+SAPI=1
+[main]
+name = core-ep2c5-picorv32-wb-soc
+description = RISC-V SoC for CoreEP2C5
+
+backend = quartus
+
+[quartus]
+family = "Cyclone II"
+device = EP2C5T144C8
+sdc_files = data/core-ep2c5.sdc
+tcl_files = data/pinmap.tcl
+            data/options.tcl
+top_module = core_ep2c5_picorv32_wb_soc
