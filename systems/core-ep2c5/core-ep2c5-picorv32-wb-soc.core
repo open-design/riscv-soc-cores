@@ -1,0 +1,12 @@
+CAPI=1
+
+[main]
+depend =
+  picorv32-wb-soc
+  riscv-nmon
+
+[verilog]
+src_files =
+  rtl/verilog/aux.v
+  rtl/verilog/core_ep2c5_picorv32_wb_soc.v
+  backend/rtl/verilog/altpla.v
