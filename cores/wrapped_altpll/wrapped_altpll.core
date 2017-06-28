@@ -1,0 +1,7 @@
+CAPI=1
+[main]
+description = "Wrapper for Altera altpll IP core"
+
+[verilog]
+src_files =
+  wrapped_altpll.v
