@@ -1,0 +1,10 @@
+CAPI=1
+[main]
+description = "Wishbone clock & reset generator IP core for Altera FPGA with altpll support"
+
+depend =
+  wrapped_altpll
+
+[verilog]
+src_files =
+  altpll_clkgen.v
