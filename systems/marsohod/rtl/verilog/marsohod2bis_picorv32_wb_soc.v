@@ -1,6 +1,6 @@
-module marsohod3_picorv32_wb_soc(
+module marsohod2_picorv32_wb_soc(
 	input  CLK100MHZ,
-	output [3:0] LED,
+	output [2:0] LED,
 	inout [7:0] IO,
 	input KEY1,
 	input FTDI_BD0,		/* SK_i, TCK_i, TXD_i */
@@ -16,7 +16,7 @@ module marsohod3_picorv32_wb_soc(
 		.INPUT_FREQUENCY (100),
 		.DIVIDE_BY (10),
 		.MULTIPLY_BY (1),
-		.DEVICE_FAMILY ("MAX 10")
+		.DEVICE_FAMILY ("Cyclone IV E")
 	)
 	clkgen(
 		.sys_clk_pad_i(CLK100MHZ),
@@ -33,8 +33,8 @@ module marsohod3_picorv32_wb_soc(
 		.clock(wb_clk),
 		.reset(wb_rst),
 		.wb_iadr_o(),
-		.uart_rx(IO[7]),
-		.uart_tx(IO[5])
+		.uart_rx(FTDI_BD0),
+		.uart_tx(FTDI_BD1)
 	);
 
 endmodule
