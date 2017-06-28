@@ -6,6 +6,9 @@ depend =
   or1k_bootloaders-0.9
   uart16550-1.5.4
   wb_ram-1.0
+  wb_spimemio
+  wb_sdram_ctrl-r2
+  gpio
   wb_intercon-1.0
   riscv-nmon
 
@@ -23,7 +26,8 @@ tb_private_src_files =
   bench/picorv32_wb_soc_tb.v
 
 [icarus]
-iverilog_options = -DPRESCALER_PRESET_HARD -DPRESCALER_HIGH_PRESET=0 -DPRESCALER_LOW_PRESET=2
+iverilog_options = -DPRESCALER_PRESET_HARD -DPRESCALER_HIGH_PRESET=0 -DPRESCALER_LOW_PRESET=2 -DSIM
+depend = mt48lc16m16a2 vlog_tb_utils-1.0 wb_bfm-1.0
 
 [simulator]
 toplevel = picorv32_wb_soc_tb
