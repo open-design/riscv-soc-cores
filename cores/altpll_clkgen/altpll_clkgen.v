@@ -2,7 +2,9 @@ module altpll_clkgen #(
 	parameter DEVICE_FAMILY = "",
 	parameter INPUT_FREQUENCY = 50,
 	parameter DIVIDE_BY = 1,
-	parameter MULTIPLY_BY = 1
+	parameter MULTIPLY_BY = 1,
+	parameter C1_DIVIDE_BY = 1,
+	parameter C1_MULTIPLY_BY = 1
 ) (
 	// Main clocks in, depending on board
 	input	sys_clk_pad_i,
@@ -13,7 +15,11 @@ module altpll_clkgen #(
 
 	// Wishbone clock and reset out
 	output	wb_clk_o,
-	output	wb_rst_o
+	output	wb_rst_o,
+
+	// Main memory clocks
+	output	sdram_clk_o,
+	output	sdram_rst_o
 );
 
 // First, deal with the asychronous reset
@@ -40,6 +46,7 @@ wrapped_altpll wrapped_altpll
 	.areset	(async_rst),
 	.inclk0	(sys_clk_pad_i),
 	.c0	(wb_clk_o),
+	.c1	(sdram_clk_o),
 	.locked	(pll_lock)
 );
 defparam
@@ -64,5 +71,16 @@ always @(posedge wb_clk_o or posedge async_rst)
 		wb_rst_shr <= {wb_rst_shr[14:0], ~(sync_rst_n)};
 
 assign wb_rst_o = wb_rst_shr[15];
+
+// Reset generation for sdram
+reg [15:0]	sdram_rst_shr;
+
+always @(posedge sdram_clk_o or posedge async_rst)
+	if (async_rst)
+		sdram_rst_shr <= 16'hffff;
+	else
+		sdram_rst_shr <= {sdram_rst_shr[14:0], ~(sync_rst_n)};
+
+assign sdram_rst_o = sdram_rst_shr[15];
 
 endmodule // altpll_clkgen

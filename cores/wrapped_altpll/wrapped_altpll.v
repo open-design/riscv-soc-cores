@@ -3,20 +3,24 @@
 // synopsys translate_on
 
 module wrapped_altpll #(
+	parameter DEVICE_FAMILY = "",
 	parameter INPUT_FREQUENCY = 50,
 	parameter DIVIDE_BY = 1,
 	parameter MULTIPLY_BY = 1,
-	parameter DEVICE_FAMILY = ""
+	parameter C1_DIVIDE_BY = 1,
+	parameter C1_MULTIPLY_BY = 1
 ) (
 	areset,
 	inclk0,
 	c0,
+	c1,
 	locked
 );
 
 	input	areset;
 	input	inclk0;
 	output	c0;
+	output	c1;
 	output	locked;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
@@ -26,20 +30,15 @@ module wrapped_altpll #(
 // synopsys translate_on
 `endif
 
-	wire [4:0] sub_wire0;
-	wire sub_wire2;
-	wire [0:0] sub_wire5 = 1'h0;
-	wire [0:0] sub_wire1 = sub_wire0[0:0];
-	wire c0 = sub_wire1;
-	wire locked = sub_wire2;
-	wire sub_wire3 = inclk0;
-	wire [1:0] sub_wire4 = {sub_wire5, sub_wire3};
+	wire [4:0] cx_wire;
+	wire c0 = cx_wire[0];
+	wire c1 = cx_wire[1];
 
 	altpll altpll_component (
 				.areset (areset),
-				.inclk (sub_wire4),
-				.clk (sub_wire0),
-				.locked (sub_wire2),
+				.inclk ({1'h0, inclk0}),
+				.clk (cx_wire),
+				.locked (locked),
 				.activeclock (),
 				.clkbad (),
 				.clkena ({6{1'b1}}),
@@ -81,6 +80,11 @@ module wrapped_altpll #(
 		altpll_component.clk0_duty_cycle = 50,
 		altpll_component.clk0_phase_shift = "0",
 
+		altpll_component.clk1_divide_by = C1_DIVIDE_BY,
+		altpll_component.clk1_multiply_by = C1_MULTIPLY_BY,
+		altpll_component.clk1_duty_cycle = 50,
+		altpll_component.clk1_phase_shift = "0",
+
 		altpll_component.compensate_clock = "CLK0",
 		altpll_component.inclk0_input_frequency = (1000000 / INPUT_FREQUENCY),
 		altpll_component.device_family = DEVICE_FAMILY,
@@ -114,7 +118,7 @@ module wrapped_altpll #(
 		altpll_component.port_scanread = "PORT_UNUSED",
 		altpll_component.port_scanwrite = "PORT_UNUSED",
 		altpll_component.port_clk0 = "PORT_USED",
-		altpll_component.port_clk1 = "PORT_UNUSED",
+		altpll_component.port_clk1 = "PORT_USED",
 		altpll_component.port_clk2 = "PORT_UNUSED",
 		altpll_component.port_clk3 = "PORT_UNUSED",
 		altpll_component.port_clk4 = "PORT_UNUSED",
