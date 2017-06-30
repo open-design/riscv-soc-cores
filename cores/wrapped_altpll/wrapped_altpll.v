@@ -83,7 +83,7 @@ module wrapped_altpll #(
 		altpll_component.clk1_divide_by = C1_DIVIDE_BY,
 		altpll_component.clk1_multiply_by = C1_MULTIPLY_BY,
 		altpll_component.clk1_duty_cycle = 50,
-		altpll_component.clk1_phase_shift = "0",
+		altpll_component.clk1_phase_shift = "-1806",
 
 		altpll_component.compensate_clock = "CLK0",
 		altpll_component.inclk0_input_frequency = (1000000 / INPUT_FREQUENCY),
