@@ -3,12 +3,43 @@ module picorv32_wb_soc #(
 	parameter PROGADDR_RESET = 32'h 0000_0000,
 	parameter BOOTROM_MEMFILE = "",
 	parameter BOOTROM_MEMDEPTH = 1024,
-	parameter SRAM0_MEMDEPTH = 16384
+	parameter SRAM0_MEMDEPTH = 16384,
+
+	parameter SDRAM_CLK_FREQ_MHZ	= 100,	// sdram_clk freq in MHZ
+	parameter SDRAM_POWERUP_DELAY	= 200,	// power up delay in us
+	parameter SDRAM_REFRESH_MS	= 64,	// time to wait between refreshes in ms
+	parameter SDRAM_BURST_LENGTH	= 8,	// 0, 1, 2, 4 or 8 (0 = full page)
+	// FIXME: SDRAM_WB_PORTS: localparam
+	parameter SDRAM_WB_PORTS	= 2,	// Number of wishbone ports
+	parameter SDRAM_BUF_WIDTH	= 3,	// Buffer size = 2^BUF_WIDTH
+	parameter SDRAM_ROW_WIDTH	= 13,	// Row width
+	parameter SDRAM_COL_WIDTH	= 9,	// Column width
+	parameter SDRAM_BA_WIDTH	= 2,	// Ba width
+	parameter SDRAM_tCAC		= 2,	// CAS Latency
+	parameter SDRAM_tRAC		= 5,	// RAS Latency
+	parameter SDRAM_tRP		= 2,	// Command Period (PRE to ACT)
+	parameter SDRAM_tRC		= 7,	// Command Period (REF to REF / ACT to ACT)
+	parameter SDRAM_tMRD		= 2	// Mode Register Set To Command Delay time
 	)
 	(
 	input  clock,
 	input  reset,
 	output [31:0] wb_iadr_o,
+
+	input				sdram_clk,
+	input				sdram_rst,
+	output [SDRAM_BA_WIDTH-1:0]	sdram_ba_pad_o,
+	output [12:0]			sdram_a_pad_o,
+	output				sdram_cs_n_pad_o,
+	output				sdram_ras_pad_o,
+	output				sdram_cas_pad_o,
+	output				sdram_we_pad_o,
+	output [15:0]			sdram_dq_o,
+	input  [15:0]			sdram_dq_i,
+	output				sdram_dq_oe,
+	output [1:0]			sdram_dqm_pad_o,
+	output				sdram_cke_pad_o,
+
 	input  uart_rx,
 	output uart_tx
 	);
@@ -20,6 +51,57 @@ module picorv32_wb_soc #(
 
 `include "wb_common_params.v"
 `include "wb_intercon.vh"
+
+wb_sdram_ctrl #(
+`ifndef SIM
+	.TECHNOLOGY	("ALTERA"),
+`endif
+	.CLK_FREQ_MHZ	(SDRAM_CLK_FREQ_MHZ),
+	.POWERUP_DELAY	(SDRAM_POWERUP_DELAY),
+	.REFRESH_MS	(SDRAM_REFRESH_MS),
+	.BURST_LENGTH	(SDRAM_BURST_LENGTH),
+	.WB_PORTS	(SDRAM_WB_PORTS),
+	.BUF_WIDTH	(SDRAM_BUF_WIDTH),
+	.ROW_WIDTH	(SDRAM_ROW_WIDTH),
+	.COL_WIDTH	(SDRAM_COL_WIDTH),
+	.BA_WIDTH	(SDRAM_BA_WIDTH),
+	.tCAC		(SDRAM_tCAC),
+	.tRAC		(SDRAM_tRAC),
+	.tRP		(SDRAM_tRP),
+	.tRC		(SDRAM_tRC),
+	.tMRD		(SDRAM_tMRD)
+)
+wb_sdram_ctrl0 (
+	.wb_clk		(wb_clk),
+	.wb_rst		(wb_rst),
+
+	.ba_pad_o	(sdram_ba_pad_o[1:0]),
+	.a_pad_o	(sdram_a_pad_o[12:0]),
+	.cs_n_pad_o	(sdram_cs_n_pad_o),
+	.ras_pad_o	(sdram_ras_pad_o),
+	.cas_pad_o	(sdram_cas_pad_o),
+	.we_pad_o	(sdram_we_pad_o),
+	.dq_i		(sdram_dq_i[15:0]),
+	.dq_o		(sdram_dq_o[15:0]),
+	.dq_oe		(sdram_dq_oe),
+	.dqm_pad_o	(sdram_dqm_pad_o[1:0]),
+	.cke_pad_o	(sdram_cke_pad_o),
+	.sdram_clk	(sdram_clk),
+	.sdram_rst	(sdram_rst),
+
+// unused: wb_s2m_sdram*_err, wb_s2m_sdram*_rty
+
+	.wb_adr_i	({wb_m2s_sdram_adr_reserved, wb_m2s_sdram_adr}),
+	.wb_stb_i	({wb_m2s_sdram_stb_reserved, wb_m2s_sdram_stb}),
+	.wb_cyc_i	({wb_m2s_sdram_cyc_reserved, wb_m2s_sdram_cyc}),
+	.wb_cti_i	({wb_m2s_sdram_cti_reserved, wb_m2s_sdram_cti}),
+	.wb_bte_i	({wb_m2s_sdram_bte_reserved, wb_m2s_sdram_bte}),
+	.wb_we_i	({wb_m2s_sdram_we_reserved,  wb_m2s_sdram_we}),
+	.wb_sel_i	({wb_m2s_sdram_sel_reserved, wb_m2s_sdram_sel}),
+	.wb_dat_i	({wb_m2s_sdram_dat_reserved, wb_m2s_sdram_dat}),
+	.wb_dat_o	({wb_s2m_sdram_dat_reserved, wb_s2m_sdram_dat}),
+	.wb_ack_o	({wb_s2m_sdram_ack_reserved, wb_s2m_sdram_ack})
+);
 
 	wb_ram #(
 		.depth (SRAM0_MEMDEPTH)
