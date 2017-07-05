@@ -11,4 +11,4 @@ device = EP4CE6E22C8
 sdc_files = data/marsohod2.sdc
 tcl_files = data/pinmap.tcl
             data/options.tcl
-top_module = marsohod2_picorv32_wb_soc
+top_module = marsohod2bis_picorv32_wb_soc
