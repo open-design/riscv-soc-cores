@@ -44,6 +44,14 @@ module mt48lc16m16a2_wrapper
 	 end
       end else
 	$display("No ELF file specified");
+
+//      if($value$plusargs("memfile_load=%s", memfile)) begin
+//	   $display("Preloading %m from %s", memfile);
+//	   $readmemh(memfile, sdram0.Bank0);
+//      end else
+//	$display("No mem file specified");
+
+	   $readmemh("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt", sdram0.Bank0);
    end
 
    always @( * ) begin
