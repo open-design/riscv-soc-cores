@@ -1,0 +1,43 @@
+CAPI=1
+[main]
+description = "SDRAM controller with multiple wishbone slave ports"
+simulators = icarus
+
+[verilog]
+src_files =
+ rtl/verilog/wb_port_arbiter.v
+ rtl/verilog/bufram.v
+ rtl/verilog/dpram_altera.v
+ rtl/verilog/dpram_generic.v
+ rtl/verilog/dual_clock_fifo.v
+ rtl/verilog/sdram_ctrl.v
+ rtl/verilog/wb_port.v
+ rtl/verilog/wb_sdram_ctrl.v
+
+tb_private_src_files =
+ bench/wb_sdram_ctrl_tb.v
+
+[plusargs]
+transactions = int "Number of wishbone transactions"
+
+[parameter transactions]
+datatype    = int
+description = Number of wishbone transactions to run in test bench
+paramtype   = plusarg
+scope       = private
+
+[simulator]
+toplevel = wb_sdram_ctrl_tb
+
+[icarus]
+depend = mt48lc16m16a2 vlog_tb_utils-1.0 wb_bfm
+
+[modelsim]
+vsim_options = -t 1ps
+depend = mt48lc16m16a2 vlog_tb_utils-1.0 wb_bfm
+
+[provider]
+name = github
+user = skristiansson
+repo = wb_sdram_ctrl
+version = 07eb97fc4afa5ca7bd6c17e88a5bb02474480808
