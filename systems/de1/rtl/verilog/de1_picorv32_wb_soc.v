@@ -1,6 +1,8 @@
 module de1_picorv32_wb_soc(
 	input  CLOCK_50,
 
+	inout [7:0] GPIO_1,
+
 	input UART_RXD,
 	output UART_TXD
 	);
@@ -31,8 +33,8 @@ module de1_picorv32_wb_soc(
 		.clock(clk10m),
 		.reset(my_reset),
 		.wb_iadr_o(),
-		.uart_rx(UART_RXD),
-		.uart_tx(UART_TXD)
+		.uart_rx(GPIO_1[3]),
+		.uart_tx(GPIO_1[1])
 	);
 
 endmodule
