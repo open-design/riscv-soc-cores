@@ -44,6 +44,7 @@ set_location_assignment PIN_68 -to SDRAM_CAS
 set_location_assignment PIN_69 -to SDRAM_WE
 set_location_assignment PIN_44 -to SDRAM_CLK
 
+set_location_assignment PIN_79 -to LED[3]
 set_location_assignment PIN_83 -to LED[2]
 set_location_assignment PIN_84 -to LED[1]
 set_location_assignment PIN_85 -to LED[0]
@@ -57,6 +58,9 @@ set_location_assignment PIN_106 -to IO[4]
 set_location_assignment PIN_110 -to IO[5]
 set_location_assignment PIN_111 -to IO[6]
 set_location_assignment PIN_112 -to IO[7]
+
+set_location_assignment PIN_23 -to KEY0
+set_location_assignment PIN_22 -to KEY1
 
 set_location_assignment PIN_24 -to FTDI_BD0
 set_location_assignment PIN_28 -to FTDI_BD1
