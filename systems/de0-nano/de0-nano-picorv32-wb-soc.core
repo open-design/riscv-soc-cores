@@ -5,6 +5,7 @@ depend =
   altpll_clkgen
   picorv32-wb-soc
   riscv-nmon
+  wb_sdram_ctrl-r2
 
 [verilog]
 src_files =
