@@ -1,3 +1,5 @@
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+
 set_location_assignment PIN_25 -to CLK100MHZ
 
 set_location_assignment PIN_30 -to SDRAM_DQ[15]
