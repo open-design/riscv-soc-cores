@@ -146,3 +146,13 @@ set_location_assignment PIN_Y22 -to gpio0_io[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gpio0_io[6]
 set_location_assignment PIN_Y21 -to gpio0_io[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gpio0_io[7]
+
+# JP2
+set_location_assignment PIN_H12 -to GPIO_1[0]
+set_location_assignment PIN_H13 -to GPIO_1[1]
+set_location_assignment PIN_H14 -to GPIO_1[2]
+set_location_assignment PIN_G15 -to GPIO_1[3]
+set_location_assignment PIN_E14 -to GPIO_1[4]
+set_location_assignment PIN_E15 -to GPIO_1[5]
+set_location_assignment PIN_F15 -to GPIO_1[6]
+set_location_assignment PIN_G16 -to GPIO_1[7]
