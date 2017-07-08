@@ -2,6 +2,7 @@ module marsohod2_picorv32_wb_soc(
 	input  CLK100MHZ,
 	output [3:0] LED,
 	inout [7:0] IO,
+	input KEY0,
 	input KEY1,
 
 	output [11:0] SDRAM_A,
@@ -50,6 +51,9 @@ assign sdram_dq_i = SDRAM_DQ;
 assign SDRAM_DQ = sdram_dq_oe ? sdram_dq_o : 16'bz;
 assign SDRAM_CLK = sdram_clk;
 
+wire [7:0] gpio0_o;
+assign LED[3:0] = gpio0_o[3:0];
+
 	picorv32_wb_soc #(
 		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024),
@@ -89,7 +93,11 @@ assign SDRAM_CLK = sdram_clk;
 		.sdram_dq_i		(sdram_dq_i[15:0]),
 		.sdram_dq_oe		(sdram_dq_oe),
 		.sdram_dqm_pad_o	(SDRAM_DQM[1:0]),
-		.sdram_cke_pad_o	()
+		.sdram_cke_pad_o	(),
+
+		.gpio0_i		(),
+		.gpio0_o		(gpio0_o),
+		.gpio0_dir_o		()
 	);
 
 endmodule
