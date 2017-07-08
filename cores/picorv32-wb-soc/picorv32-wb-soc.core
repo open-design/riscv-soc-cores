@@ -7,6 +7,7 @@ depend =
   uart16550-1.5.4
   wb_ram-1.0
   wb_sdram_ctrl-r2
+  gpio
   wb_intercon-1.0
   riscv-nmon
 
