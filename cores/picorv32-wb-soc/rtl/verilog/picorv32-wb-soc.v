@@ -41,7 +41,11 @@ module picorv32_wb_soc #(
 	output				sdram_cke_pad_o,
 
 	input  uart_rx,
-	output uart_tx
+	output uart_tx,
+
+	input [7:0] gpio0_i,
+	output [7:0] gpio0_o,
+	output [7:0] gpio0_dir_o
 	);
 
 	wire wb_clk;
@@ -157,6 +161,29 @@ wb_sdram_ctrl0 (
 		.stx_pad_o(uart_tx),
 		.srx_pad_i(uart_rx)
 	);
+
+gpio gpio0 (
+	// GPIO bus
+	.gpio_i		(gpio0_i),
+	.gpio_o		(gpio0_o),
+	.gpio_dir_o	(gpio0_dir_0),
+
+	// Wishbone slave interface
+	.wb_adr_i	(wb_m2s_gpio0_adr[2]),
+	.wb_dat_i	(wb_m2s_gpio0_dat),
+	.wb_we_i	(wb_m2s_gpio0_we),
+	.wb_cyc_i	(wb_m2s_gpio0_cyc),
+	.wb_stb_i	(wb_m2s_gpio0_stb),
+	.wb_cti_i	(wb_m2s_gpio0_cti),
+	.wb_bte_i	(wb_m2s_gpio0_bte),
+	.wb_dat_o	(wb_s2m_gpio0_dat),
+	.wb_ack_o	(wb_s2m_gpio0_ack),
+	.wb_err_o	(wb_s2m_gpio0_err),
+	.wb_rty_o	(wb_s2m_gpio0_rty),
+
+	.wb_clk		(wb_clk),
+	.wb_rst		(wb_rst)
+);
 
 	picorv32_wb #(
 		.PROGADDR_RESET (PROGADDR_RESET),
