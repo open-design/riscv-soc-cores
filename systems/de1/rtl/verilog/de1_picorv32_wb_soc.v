@@ -7,31 +7,30 @@ module de1_picorv32_wb_soc(
 	output UART_TXD
 	);
 
-	reg reset = 0;
-	wire clk10m;
-	wire pll_locked;
+	wire wb_clk;
+	wire wb_rst;
 
-	altpll0 pll_10(
-		.inclk0(CLOCK_50),
-		.areset(reset),
-		.c0(clk10m),
-		.locked(pll_locked)
+	altpll_clkgen #(
+		.DEVICE_FAMILY ("Cyclone II"),
+		.INPUT_FREQUENCY (50),
+		.DIVIDE_BY (25),
+		.MULTIPLY_BY (12)
+	)
+	clkgen(
+		.sys_clk_pad_i(CLOCK_50),
+		.rst_n_pad_i(1),
+		.wb_clk_o(wb_clk),
+		.wb_rst_o(wb_rst),
 	);
 
-	wire [35:0] cout;
-	counter counter(.out(cout), .clk(clk10m), .reset(0));
-	wire slow_clock = cout[8];
-
-	wire my_reset;
-	reset mreset(slow_clock, my_reset);
 
 	picorv32_wb_soc #(
 		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024)
 	)
 	soc(
-		.clock(clk10m),
-		.reset(my_reset),
+		.clock(wb_clk),
+		.reset(wb_rst),
 		.wb_iadr_o(),
 		.uart_rx(GPIO_1[3]),
 		.uart_tx(GPIO_1[1])
