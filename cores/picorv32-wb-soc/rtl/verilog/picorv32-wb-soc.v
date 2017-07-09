@@ -6,6 +6,7 @@ module picorv32_wb_soc #(
 	parameter BOOTROM_MEMFILE = "",
 	parameter BOOTROM_MEMDEPTH = 1024,
 	parameter SRAM0_MEMDEPTH = 16384,
+	parameter SRAM0_MEMFILE = "",
 
 	parameter SDRAM_CLK_FREQ_MHZ	= 100,	// sdram_clk freq in MHZ
 	parameter SDRAM_POWERUP_DELAY	= 200,	// power up delay in us
@@ -134,7 +135,8 @@ wb_sdram_ctrl0 (
 	);
 
 	wb_ram #(
-		.depth (SRAM0_MEMDEPTH)
+		.depth (SRAM0_MEMDEPTH),
+		.memfile (SRAM0_MEMFILE)
 	)
 	sram0 (
 		.wb_clk_i		(wb_clk),
