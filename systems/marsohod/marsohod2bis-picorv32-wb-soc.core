@@ -14,12 +14,12 @@ backend = quartus
 family = "Cyclone IV E"
 device = EP4CE6E22C8
 sdc_files = data/marsohod2.sdc
-tcl_files = data/pinmap.tcl
+tcl_files = data/marsohod2bis-pinmap.tcl
             data/options.tcl
-top_module = marsohod2_picorv32_wb_soc
+top_module = marsohod2bis_picorv32_wb_soc
 
 [verilog]
 src_files =
   rtl/verilog/aux.v
-  rtl/verilog/marsohod2_picorv32_wb_soc.v
+  rtl/verilog/marsohod2bis_picorv32_wb_soc.v
   rtl/verilog/cyclone4-altpll/altpll0.v
