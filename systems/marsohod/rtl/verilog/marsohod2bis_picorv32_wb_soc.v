@@ -2,7 +2,7 @@ module marsohod2bis_picorv32_wb_soc(
 	input  CLK100MHZ,
 	output [2:0] LED,
 	inout [7:0] IO,
-	input KEY1,
+	input KEY0,
 
 	output [11:0] SDRAM_A,
 	output [1:0] SDRAM_BA,
@@ -35,7 +35,7 @@ module marsohod2bis_picorv32_wb_soc(
 	)
 	clkgen(
 		.sys_clk_pad_i(CLK100MHZ),
-		.rst_n_pad_i(KEY1),
+		.rst_n_pad_i(KEY0),
 		.wb_clk_o(wb_clk),
 		.wb_rst_o(wb_rst),
 		.sdram_clk_o(sdram_clk),
