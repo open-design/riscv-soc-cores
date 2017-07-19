@@ -27,8 +27,8 @@ module de0_nano_picorv32_wb_soc(
 		.INPUT_FREQUENCY (50),
 		.DIVIDE_BY (25),
 		.MULTIPLY_BY (12),
-		.C1_DIVIDE_BY (1),
-		.C1_MULTIPLY_BY (2)
+		.C1_DIVIDE_BY (25), // sdram
+		.C1_MULTIPLY_BY (33)
 	)
 	clkgen(
 		.sys_clk_pad_i(CLOCK_50),
@@ -48,12 +48,12 @@ assign	DRAM_DQ = sdram_dq_oe ? sdram_dq_o : 16'bz;
 assign	DRAM_CLK = sdram_clk;
 
 	picorv32_wb_soc #(
-		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt"),
-		.BOOTROM_MEMDEPTH (1024),
-		.SRAM0_MEMDEPTH (32768),
+		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/barebox_nmon_memtest_24_115200_80000000.txt"),
+		.BOOTROM_MEMDEPTH (8192),
+		.SRAM0_MEMDEPTH (16384),
 
 		// ISSI IS42S16160G-7TLI
-		.SDRAM_CLK_FREQ_MHZ	(100),	// sdram_clk freq in MHZ
+		.SDRAM_CLK_FREQ_MHZ	(66),	// sdram_clk freq in MHZ
 		.SDRAM_POWERUP_DELAY	(200),	// power up delay in us
 		.SDRAM_REFRESH_MS	(32),	// time to wait between refreshes in ms
 		.SDRAM_BURST_LENGTH	(8),	// 0, 1, 2, 4 or 8 (0 = full page)

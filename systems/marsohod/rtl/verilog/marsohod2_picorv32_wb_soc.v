@@ -55,8 +55,8 @@ wire [7:0] gpio0_o;
 assign LED[3:0] = gpio0_o[3:0];
 
 	picorv32_wb_soc #(
-		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt"),
-		.BOOTROM_MEMDEPTH (1024),
+		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/barebox_nmon_memtest_24_115200_40000000.txt"),
+		.BOOTROM_MEMDEPTH (8192),
 		.SRAM0_MEMDEPTH (16384),
 
 		// MT48LC4M16A2
