@@ -2,7 +2,7 @@ module picorv32_wb_soc #(
 	parameter SIM = 0,
 	parameter PROGADDR_RESET = 32'h 0000_0000,
 	parameter BOOTROM_MEMFILE = "",
-	parameter BOOTROM_MEMDEPTH = 1024,
+	parameter BOOTROM_MEMDEPTH = 8192,
 	parameter SRAM0_MEMDEPTH = 16384,
 	parameter SRAM0_MEMFILE = "",
 
