@@ -1,0 +1,9 @@
+CAPI=1
+[main]
+name = altera_clkgen
+description = "Clock & reset generator IP core for Altera FPGA"
+
+[verilog]
+src_files =
+  altera_pll_clkgen.v
+  wrapped_altera_pll.v
