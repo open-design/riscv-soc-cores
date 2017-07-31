@@ -4,6 +4,16 @@ module de1_soc_picorv32_wb_soc(
 	inout [35:0] GPIO_0
 	);
 
+	wire spi0_sck;
+	wire spi0_miso;
+	wire spi0_mosi;
+	wire spi0_cs0;
+
+	assign GPIO_0[0] = spi0_sck;
+	assign spi0_miso = GPIO_0[2];
+	assign GPIO_0[4] = spi0_mosi;
+	assign GPIO_0[6] = spi0_cs0;
+
 	wire wb_clk;
 	wire wb_rst;
 
@@ -19,9 +29,13 @@ module de1_soc_picorv32_wb_soc(
 	);
 
 	wire [7:0] gpio0_o;
-	assign LEDR[7:0] = gpio0_o[7:0];
+//	assign LEDR[7:0] = gpio0_o[7:0];
+	assign spi0_sck = gpio0_o[0];
+	assign spi0_mosi = gpio0_o[2];
+	assign spi0_cs0 = gpio0_o[3];
 
 	wire [7:0] gpio0_i;
+	assign gpio0_i[1] = spi0_miso;
 
 	picorv32_wb_soc #(
 		.BOOTROM_MEMFILE ("nmon_picorv32-wb-soc_24MHz_115200.txt"),
