@@ -60,42 +60,6 @@ wire [31:0] wb_s2m_sram0_dat;
 wire        wb_s2m_sram0_ack;
 wire        wb_s2m_sram0_err;
 wire        wb_s2m_sram0_rty;
-wire [31:0] wb_m2s_sram1_adr;
-wire [31:0] wb_m2s_sram1_dat;
-wire  [3:0] wb_m2s_sram1_sel;
-wire        wb_m2s_sram1_we;
-wire        wb_m2s_sram1_cyc;
-wire        wb_m2s_sram1_stb;
-wire  [2:0] wb_m2s_sram1_cti;
-wire  [1:0] wb_m2s_sram1_bte;
-wire [31:0] wb_s2m_sram1_dat;
-wire        wb_s2m_sram1_ack;
-wire        wb_s2m_sram1_err;
-wire        wb_s2m_sram1_rty;
-wire [31:0] wb_m2s_sram2_adr;
-wire [31:0] wb_m2s_sram2_dat;
-wire  [3:0] wb_m2s_sram2_sel;
-wire        wb_m2s_sram2_we;
-wire        wb_m2s_sram2_cyc;
-wire        wb_m2s_sram2_stb;
-wire  [2:0] wb_m2s_sram2_cti;
-wire  [1:0] wb_m2s_sram2_bte;
-wire [31:0] wb_s2m_sram2_dat;
-wire        wb_s2m_sram2_ack;
-wire        wb_s2m_sram2_err;
-wire        wb_s2m_sram2_rty;
-wire [31:0] wb_m2s_sram3_adr;
-wire [31:0] wb_m2s_sram3_dat;
-wire  [3:0] wb_m2s_sram3_sel;
-wire        wb_m2s_sram3_we;
-wire        wb_m2s_sram3_cyc;
-wire        wb_m2s_sram3_stb;
-wire  [2:0] wb_m2s_sram3_cti;
-wire  [1:0] wb_m2s_sram3_bte;
-wire [31:0] wb_s2m_sram3_dat;
-wire        wb_s2m_sram3_ack;
-wire        wb_s2m_sram3_err;
-wire        wb_s2m_sram3_rty;
 wire [31:0] wb_m2s_sdram_adr;
 wire [31:0] wb_m2s_sdram_dat;
 wire  [3:0] wb_m2s_sdram_sel;
@@ -184,42 +148,6 @@ wb_intercon wb_intercon0
     .wb_sram0_ack_i          (wb_s2m_sram0_ack),
     .wb_sram0_err_i          (wb_s2m_sram0_err),
     .wb_sram0_rty_i          (wb_s2m_sram0_rty),
-    .wb_sram1_adr_o          (wb_m2s_sram1_adr),
-    .wb_sram1_dat_o          (wb_m2s_sram1_dat),
-    .wb_sram1_sel_o          (wb_m2s_sram1_sel),
-    .wb_sram1_we_o           (wb_m2s_sram1_we),
-    .wb_sram1_cyc_o          (wb_m2s_sram1_cyc),
-    .wb_sram1_stb_o          (wb_m2s_sram1_stb),
-    .wb_sram1_cti_o          (wb_m2s_sram1_cti),
-    .wb_sram1_bte_o          (wb_m2s_sram1_bte),
-    .wb_sram1_dat_i          (wb_s2m_sram1_dat),
-    .wb_sram1_ack_i          (wb_s2m_sram1_ack),
-    .wb_sram1_err_i          (wb_s2m_sram1_err),
-    .wb_sram1_rty_i          (wb_s2m_sram1_rty),
-    .wb_sram2_adr_o          (wb_m2s_sram2_adr),
-    .wb_sram2_dat_o          (wb_m2s_sram2_dat),
-    .wb_sram2_sel_o          (wb_m2s_sram2_sel),
-    .wb_sram2_we_o           (wb_m2s_sram2_we),
-    .wb_sram2_cyc_o          (wb_m2s_sram2_cyc),
-    .wb_sram2_stb_o          (wb_m2s_sram2_stb),
-    .wb_sram2_cti_o          (wb_m2s_sram2_cti),
-    .wb_sram2_bte_o          (wb_m2s_sram2_bte),
-    .wb_sram2_dat_i          (wb_s2m_sram2_dat),
-    .wb_sram2_ack_i          (wb_s2m_sram2_ack),
-    .wb_sram2_err_i          (wb_s2m_sram2_err),
-    .wb_sram2_rty_i          (wb_s2m_sram2_rty),
-    .wb_sram3_adr_o          (wb_m2s_sram3_adr),
-    .wb_sram3_dat_o          (wb_m2s_sram3_dat),
-    .wb_sram3_sel_o          (wb_m2s_sram3_sel),
-    .wb_sram3_we_o           (wb_m2s_sram3_we),
-    .wb_sram3_cyc_o          (wb_m2s_sram3_cyc),
-    .wb_sram3_stb_o          (wb_m2s_sram3_stb),
-    .wb_sram3_cti_o          (wb_m2s_sram3_cti),
-    .wb_sram3_bte_o          (wb_m2s_sram3_bte),
-    .wb_sram3_dat_i          (wb_s2m_sram3_dat),
-    .wb_sram3_ack_i          (wb_s2m_sram3_ack),
-    .wb_sram3_err_i          (wb_s2m_sram3_err),
-    .wb_sram3_rty_i          (wb_s2m_sram3_rty),
     .wb_sdram_adr_o          (wb_m2s_sdram_adr),
     .wb_sdram_dat_o          (wb_m2s_sdram_dat),
     .wb_sdram_sel_o          (wb_m2s_sdram_sel),

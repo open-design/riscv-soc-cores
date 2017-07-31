@@ -109,10 +109,10 @@ wb_sdram_ctrl0 (
 );
 
 	wb_ram #(
-		.depth (65536)
+		.depth (SRAM0_MEMDEPTH),
+		.memfile (SRAM0_MEMFILE)
 	)
-	sram0
-	(
+	sram0 (
 		.wb_clk_i		(wb_clk),
 		.wb_rst_i		(wb_rst),
 
@@ -127,69 +127,6 @@ wb_sdram_ctrl0 (
 		.wb_dat_o		(wb_s2m_sram0_dat),
 		.wb_ack_o		(wb_s2m_sram0_ack),
 		.wb_err_o		(wb_s2m_sram0_err)
-	);
-
-	wb_ram #(
-		.depth (65536)
-	)
-	sram1
-	(
-		.wb_clk_i		(wb_clk),
-		.wb_rst_i		(wb_rst),
-
-		.wb_adr_i		(wb_m2s_sram1_adr),
-		.wb_dat_i		(wb_m2s_sram1_dat),
-		.wb_sel_i		(wb_m2s_sram1_sel),
-		.wb_we_i		(wb_m2s_sram1_we),
-		.wb_cyc_i		(wb_m2s_sram1_cyc),
-		.wb_stb_i		(wb_m2s_sram1_stb),
-		.wb_cti_i		(wb_m2s_sram1_cti),
-		.wb_bte_i		(wb_m2s_sram1_bte),
-		.wb_dat_o		(wb_s2m_sram1_dat),
-		.wb_ack_o		(wb_s2m_sram1_ack),
-		.wb_err_o		(wb_s2m_sram1_err)
-	);
-
-	wb_ram #(
-		.depth (65536)
-	)
-	sram2
-	(
-		.wb_clk_i		(wb_clk),
-		.wb_rst_i		(wb_rst),
-
-		.wb_adr_i		(wb_m2s_sram2_adr),
-		.wb_dat_i		(wb_m2s_sram2_dat),
-		.wb_sel_i		(wb_m2s_sram2_sel),
-		.wb_we_i		(wb_m2s_sram2_we),
-		.wb_cyc_i		(wb_m2s_sram2_cyc),
-		.wb_stb_i		(wb_m2s_sram2_stb),
-		.wb_cti_i		(wb_m2s_sram2_cti),
-		.wb_bte_i		(wb_m2s_sram2_bte),
-		.wb_dat_o		(wb_s2m_sram2_dat),
-		.wb_ack_o		(wb_s2m_sram2_ack),
-		.wb_err_o		(wb_s2m_sram2_err)
-	);
-
-	wb_ram #(
-		.depth (65536)
-	)
-	sram3
-	(
-		.wb_clk_i		(wb_clk),
-		.wb_rst_i		(wb_rst),
-
-		.wb_adr_i		(wb_m2s_sram3_adr),
-		.wb_dat_i		(wb_m2s_sram3_dat),
-		.wb_sel_i		(wb_m2s_sram3_sel),
-		.wb_we_i		(wb_m2s_sram3_we),
-		.wb_cyc_i		(wb_m2s_sram3_cyc),
-		.wb_stb_i		(wb_m2s_sram3_stb),
-		.wb_cti_i		(wb_m2s_sram3_cti),
-		.wb_bte_i		(wb_m2s_sram3_bte),
-		.wb_dat_o		(wb_s2m_sram3_dat),
-		.wb_ack_o		(wb_s2m_sram3_ack),
-		.wb_err_o		(wb_s2m_sram3_err)
 	);
 
 	wb_bootrom #(
