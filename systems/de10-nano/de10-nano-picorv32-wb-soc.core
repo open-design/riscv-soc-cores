@@ -5,11 +5,10 @@ name = de10-nano-picorv32-wb-soc
 description = RISC-V SoC for Terasic DE10-Nano
 
 depend =
+  altera_clkgen
   picorv32-wb-soc
   riscv-nmon
 
 [verilog]
 src_files =
   rtl/verilog/de10-nano_picorv32_wb_soc.v
-  rtl/verilog/altera_pll_clkgen.v
-  rtl/verilog/wrapped_altera_pll.v
