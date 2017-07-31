@@ -2,8 +2,29 @@ module de10_nano_picorv32_wb_soc(
 	input CLOCK_50,
 	input [1:0] KEY,
 	output [7:0] LED,
-	inout [35:0] GPIO_0
+	inout [7:0] GPIO_0
+	inout [7:0] GPIO_1
 	);
+
+	wire spi0_sck;
+	wire spi0_miso;
+	wire spi0_mosi;
+	wire spi0_cs0;
+
+	assign GPIO_0[0] = spi0_sck;
+	assign spi0_miso = GPIO_0[2];
+	assign GPIO_0[4] = spi0_mosi;
+	assign GPIO_0[6] = spi0_sc0;
+
+	/* debug */
+	assign GPIO_1[0] = GPIO_0[0];
+	assign GPIO_1[1] = GPIO_0[1];
+	assign GPIO_1[2] = GPIO_0[2];
+	assign GPIO_1[3] = GPIO_0[3];
+	assign GPIO_1[4] = GPIO_0[4];
+	assign GPIO_1[5] = GPIO_0[5];
+	assign GPIO_1[6] = GPIO_0[6];
+	assign GPIO_1[7] = GPIO_0[7];
 
 	wire wb_clk;
 	wire wb_rst;
@@ -20,10 +41,14 @@ module de10_nano_picorv32_wb_soc(
 	);
 
 wire [7:0] gpio0_o;
-assign LED[7:0] = gpio0_o[7:0];
+//assign LED[7:0] = gpio0_o[7:0];
+	assign spi0_sck = gpio0_o[0];
+	assign spi0_mosi = gpio0_o[2];
+	assign spi0_sc0 = gpio0_o[3];
 
 wire [7:0] gpio0_i;
-assign gpio0_i[1:0] = KEY[1:0];
+//assign gpio0_i[1:0] = KEY[1:0];
+	assign gpio0_i[1] = spi0_miso;
 
 	picorv32_wb_soc #(
 		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt"),
