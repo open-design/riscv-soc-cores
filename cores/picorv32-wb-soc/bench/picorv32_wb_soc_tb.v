@@ -66,7 +66,7 @@ endmodule
 module picorv32_wb_soc_tb;
 
 	initial
-		#20000 $finish;
+		#10000000 $finish;
 
 	initial
 	begin
@@ -98,11 +98,11 @@ module picorv32_wb_soc_tb;
 	wire sdram_dq_oe;
 	wire [1:0] sdram_dqm_pad;
 
-		//.PROGADDR_RESET (32'h 0000_0000),
 	picorv32_wb_soc #(
-		.PROGADDR_RESET (32'h 8000_0400),
-		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_10MHz_9600.txt"),
-		.BOOTROM_MEMDEPTH (1024),
+		.SIM (1),
+		.PROGADDR_RESET (32'h 0000_0000),
+		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/barebox_memtest_verbose.txt"),
+		.BOOTROM_MEMDEPTH (65536),
 
 		// MT48LC4M16A2
 		.SDRAM_CLK_FREQ_MHZ	(50),	// sdram_clk freq in MHZ
