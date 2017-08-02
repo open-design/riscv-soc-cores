@@ -17,10 +17,10 @@ module tb_clkgen(
 	reg wb_clk_o = 0;
 	always
 	begin
-		#1 wb_clk_o = !wb_clk_o;
+		#10 wb_clk_o = !wb_clk_o;
 	end
 
-	// 10 MHz
+	// 100 MHz
 	reg sdram_clk_o = 0;
 	always
 	begin
@@ -66,7 +66,7 @@ endmodule
 module picorv32_wb_soc_tb;
 
 	initial
-		#10000000 $finish;
+		#50000000 $finish;
 
 	initial
 	begin
