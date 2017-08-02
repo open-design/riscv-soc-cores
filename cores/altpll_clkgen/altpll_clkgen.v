@@ -53,7 +53,9 @@ defparam
 	wrapped_altpll.INPUT_FREQUENCY = INPUT_FREQUENCY,
 	wrapped_altpll.DIVIDE_BY = DIVIDE_BY,
 	wrapped_altpll.MULTIPLY_BY = MULTIPLY_BY,
-	wrapped_altpll.DEVICE_FAMILY = DEVICE_FAMILY;
+	wrapped_altpll.DEVICE_FAMILY = DEVICE_FAMILY,
+	wrapped_altpll.C1_DIVIDE_BY = C1_DIVIDE_BY,
+	wrapped_altpll.C1_MULTIPLY_BY = C1_MULTIPLY_BY;
 
 assign sync_rst_n = pll_lock;
 
