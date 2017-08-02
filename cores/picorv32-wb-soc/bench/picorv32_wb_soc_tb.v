@@ -105,7 +105,7 @@ module picorv32_wb_soc_tb;
 		.BOOTROM_MEMDEPTH (65536),
 
 		// MT48LC4M16A2
-		.SDRAM_CLK_FREQ_MHZ	(50),	// sdram_clk freq in MHZ
+		.SDRAM_CLK_FREQ_MHZ	(100),	// sdram_clk freq in MHZ
 		.SDRAM_POWERUP_DELAY	(2),	// power up delay in us
 		.SDRAM_REFRESH_MS	(32),	// time to wait between refreshes in ms
 		.SDRAM_BURST_LENGTH	(8),	// 0, 1, 2, 4 or 8 (0 = full page)
