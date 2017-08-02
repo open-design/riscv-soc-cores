@@ -97,8 +97,8 @@ wb_sdram_ctrl0 (
 // unused: wb_s2m_sdram*_err, wb_s2m_sdram*_rty
 
 	.wb_adr_i	({
-				{8'h00, wb_m2s_sdram_reserved_adr[23:0]},
-				{8'h00, wb_m2s_sdram_adr[23:0]}
+				{7'h00, wb_m2s_sdram_reserved_adr[24:0]},
+				{7'h00, wb_m2s_sdram_adr[24:0]}
 				}),
 	.wb_stb_i	({wb_m2s_sdram_reserved_stb, wb_m2s_sdram_stb}),
 	.wb_cyc_i	({wb_m2s_sdram_reserved_cyc, wb_m2s_sdram_cyc}),
