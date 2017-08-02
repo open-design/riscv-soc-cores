@@ -96,16 +96,19 @@ wb_sdram_ctrl0 (
 
 // unused: wb_s2m_sdram*_err, wb_s2m_sdram*_rty
 
-	.wb_adr_i	({wb_m2s_sdram_adr_reserved, wb_m2s_sdram_adr}),
-	.wb_stb_i	({wb_m2s_sdram_stb_reserved, wb_m2s_sdram_stb}),
-	.wb_cyc_i	({wb_m2s_sdram_cyc_reserved, wb_m2s_sdram_cyc}),
-	.wb_cti_i	({wb_m2s_sdram_cti_reserved, wb_m2s_sdram_cti}),
-	.wb_bte_i	({wb_m2s_sdram_bte_reserved, wb_m2s_sdram_bte}),
-	.wb_we_i	({wb_m2s_sdram_we_reserved,  wb_m2s_sdram_we}),
-	.wb_sel_i	({wb_m2s_sdram_sel_reserved, wb_m2s_sdram_sel}),
-	.wb_dat_i	({wb_m2s_sdram_dat_reserved, wb_m2s_sdram_dat}),
-	.wb_dat_o	({wb_s2m_sdram_dat_reserved, wb_s2m_sdram_dat}),
-	.wb_ack_o	({wb_s2m_sdram_ack_reserved, wb_s2m_sdram_ack})
+	.wb_adr_i	({
+				{8'h00, wb_m2s_sdram_reserved_adr[23:0]},
+				{8'h00, wb_m2s_sdram_adr[23:0]}
+				}),
+	.wb_stb_i	({wb_m2s_sdram_reserved_stb, wb_m2s_sdram_stb}),
+	.wb_cyc_i	({wb_m2s_sdram_reserved_cyc, wb_m2s_sdram_cyc}),
+	.wb_cti_i	({wb_m2s_sdram_reserved_cti, wb_m2s_sdram_cti}),
+	.wb_bte_i	({wb_m2s_sdram_reserved_bte, wb_m2s_sdram_bte}),
+	.wb_we_i	({wb_m2s_sdram_reserved_we,  wb_m2s_sdram_we}),
+	.wb_sel_i	({wb_m2s_sdram_reserved_sel, wb_m2s_sdram_sel}),
+	.wb_dat_i	({wb_m2s_sdram_reserved_dat, wb_m2s_sdram_dat}),
+	.wb_dat_o	({wb_s2m_sdram_reserved_dat, wb_s2m_sdram_dat}),
+	.wb_ack_o	({wb_s2m_sdram_reserved_ack, wb_s2m_sdram_ack})
 );
 
 	wb_ram #(

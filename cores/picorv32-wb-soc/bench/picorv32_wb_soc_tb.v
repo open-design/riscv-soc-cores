@@ -101,7 +101,7 @@ module picorv32_wb_soc_tb;
 	picorv32_wb_soc #(
 		.SIM (1),
 		.PROGADDR_RESET (32'h 0000_0000),
-		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/barebox_memtest_verbose.txt"),
+		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/barebox_memtest2.txt"),
 		.BOOTROM_MEMDEPTH (65536),
 
 		// MT48LC4M16A2

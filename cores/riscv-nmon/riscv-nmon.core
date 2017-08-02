@@ -8,3 +8,4 @@ include_files =
   barebox_nmon_memtest_24_115200_40000000.txt
   barebox_nmon_memtest_24_115200_80000000.txt
   barebox_memtest_verbose.txt
+  barebox_memtest2.txt
