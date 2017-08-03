@@ -5,7 +5,7 @@ name = marsohod3-picorv32-wb-soc
 description = RISC-V SoC for Marsohod3
 
 depend =
-  altpll_clkgen
+  altera_clkgen
   picorv32-wb-soc
   riscv-nmon
 
