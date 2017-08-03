@@ -7,3 +7,5 @@ description = "Clock & reset generator IP core for Altera FPGA"
 src_files =
   altera_pll_clkgen.v
   wrapped_altera_pll.v
+  altpll_clkgen.v
+  wrapped_altpll.v
