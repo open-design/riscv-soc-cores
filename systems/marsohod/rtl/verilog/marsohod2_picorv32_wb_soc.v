@@ -31,8 +31,8 @@ module marsohod2_picorv32_wb_soc(
 		.INPUT_FREQUENCY (100),
 		.DIVIDE_BY (25),
 		.MULTIPLY_BY (6),
-		.C1_DIVIDE_BY (50), // sdram
-		.C1_MULTIPLY_BY (33)
+		.C1_DIVIDE_BY (4), // sdram
+		.C1_MULTIPLY_BY (3)
 	)
 	clkgen(
 		.sys_clk_pad_i(CLK100MHZ),
@@ -60,7 +60,7 @@ assign LED[3:0] = gpio0_o[3:0];
 		.SRAM0_MEMDEPTH (16384),
 
 		// MT48LC4M16A2
-		.SDRAM_CLK_FREQ_MHZ	(66),	// sdram_clk freq in MHZ
+		.SDRAM_CLK_FREQ_MHZ	(75),	// sdram_clk freq in MHZ
 		.SDRAM_POWERUP_DELAY	(200),	// power up delay in us
 		.SDRAM_REFRESH_MS	(64),	// time to wait between refreshes in ms
 		.SDRAM_BURST_LENGTH	(8),	// 0, 1, 2, 4 or 8 (0 = full page)
