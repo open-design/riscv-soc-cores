@@ -30,8 +30,8 @@ module marsohod2bis_picorv32_wb_soc(
 		.INPUT_FREQUENCY (100),
 		.DIVIDE_BY (25),
 		.MULTIPLY_BY (6),
-		.C1_DIVIDE_BY (1), // sdram
-		.C1_MULTIPLY_BY (1)
+		.C1_DIVIDE_BY (4), // sdram
+		.C1_MULTIPLY_BY (3)
 	)
 	clkgen(
 		.sys_clk_pad_i(CLK100MHZ),
@@ -56,10 +56,10 @@ assign LED[2:0] = gpio0_o[2:0];
 	picorv32_wb_soc #(
 		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/barebox_nmon_memtest_24_115200_40000000.txt"),
 		.BOOTROM_MEMDEPTH (8192),
-		.SRAM0_MEMDEPTH (16384),
+		.SRAM0_MEMDEPTH (8192),
 
 		// MT48LC4M16A2
-		.SDRAM_CLK_FREQ_MHZ	(100),	// sdram_clk freq in MHZ
+		.SDRAM_CLK_FREQ_MHZ	(75),	// sdram_clk freq in MHZ
 		.SDRAM_POWERUP_DELAY	(200),	// power up delay in us
 		.SDRAM_REFRESH_MS	(64),	// time to wait between refreshes in ms
 		.SDRAM_BURST_LENGTH	(8),	// 0, 1, 2, 4 or 8 (0 = full page)
