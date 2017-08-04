@@ -12,9 +12,24 @@ module de0_nano_picorv32_wb_soc(
 	output [1:0] DRAM_DQM,
 	inout [15:0] DRAM_DQ,
 
+	output EPCS_DCLK,
+	input EPCS_DATA0,
+	output EPCS_NCSO,
+	output EPCS_ASDO,
+
 	inout  [33:0] GPIO_0,
 	inout  [33:0] GPIO_1
 	);
+
+	wire spi0_sck;
+	wire spi0_miso;
+	wire spi0_mosi;
+	wire spi0_cs0;
+
+	assign EPCS_DCLK = spi0_sck;
+	assign spi0_miso = EPCS_DATA0;
+	assign EPCS_ASDO = spi0_mosi;
+	assign EPCS_NCSO = spi0_cs0;
 
 	wire wb_clk;
 	wire wb_rst;
@@ -27,8 +42,8 @@ module de0_nano_picorv32_wb_soc(
 		.INPUT_FREQUENCY (50),
 		.DIVIDE_BY (25),
 		.MULTIPLY_BY (12),
-		.C1_DIVIDE_BY (25), // sdram
-		.C1_MULTIPLY_BY (33)
+		.C1_DIVIDE_BY (2), // sdram
+		.C1_MULTIPLY_BY (3)
 	)
 	clkgen(
 		.sys_clk_pad_i(CLOCK_50),
@@ -47,13 +62,23 @@ assign	sdram_dq_i = DRAM_DQ;
 assign	DRAM_DQ = sdram_dq_oe ? sdram_dq_o : 16'bz;
 assign	DRAM_CLK = sdram_clk;
 
+	wire [7:0] gpio0_o;
+//	assign spi0_sck = gpio0_o[0];
+//	assign spi0_mosi = gpio0_o[2];
+//	assign spi0_cs0 = gpio0_o[3];
+
+	wire [7:0] gpio0_i;
+//	assign gpio0_i[1] = spi0_miso;
+
 	picorv32_wb_soc #(
+		.PROGADDR_RESET (32'h 3000_0000),
+
 		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/barebox_nmon_memtest_24_115200_80000000.txt"),
 		.BOOTROM_MEMDEPTH (8192),
 		.SRAM0_MEMDEPTH (16384),
 
 		// ISSI IS42S16160G-7TLI
-		.SDRAM_CLK_FREQ_MHZ	(66),	// sdram_clk freq in MHZ
+		.SDRAM_CLK_FREQ_MHZ	(75),	// sdram_clk freq in MHZ
 		.SDRAM_POWERUP_DELAY	(200),	// power up delay in us
 		.SDRAM_REFRESH_MS	(32),	// time to wait between refreshes in ms
 		.SDRAM_BURST_LENGTH	(8),	// 0, 1, 2, 4 or 8 (0 = full page)
@@ -86,7 +111,16 @@ assign	DRAM_CLK = sdram_clk;
 	.sdram_dq_i		(sdram_dq_i[15:0]),
 	.sdram_dq_oe		(sdram_dq_oe),
 	.sdram_dqm_pad_o	(DRAM_DQM[1:0]),
-	.sdram_cke_pad_o	(DRAM_CKE)
+	.sdram_cke_pad_o	(DRAM_CKE),
+
+		.spi0_cs0 (spi0_cs0),
+		.spi0_miso (spi0_miso),
+		.spi0_mosi (spi0_mosi),
+		.spi0_sclk (spi0_sck),
+
+		.gpio0_i		(gpio0_i),
+		.gpio0_o		(gpio0_o),
+		.gpio0_dir_o		()
 	);
 
 endmodule
