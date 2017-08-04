@@ -171,7 +171,7 @@ gpio gpio0 (
 	// GPIO bus
 	.gpio_i		(gpio0_i),
 	.gpio_o		(gpio0_o),
-	.gpio_dir_o	(gpio0_dir_0),
+	.gpio_dir_o	(gpio0_dir_o),
 
 	// Wishbone slave interface
 	.wb_adr_i	(wb_m2s_gpio0_adr[2]),
