@@ -14,7 +14,7 @@ module de10_nano_picorv32_wb_soc(
 	assign GPIO_0[0] = spi0_sck;
 	assign spi0_miso = GPIO_0[2];
 	assign GPIO_0[4] = spi0_mosi;
-	assign GPIO_0[6] = spi0_sc0;
+	assign GPIO_0[6] = spi0_cs0;
 
 	/* debug */
 	assign GPIO_1[0] = GPIO_0[0];
@@ -44,7 +44,7 @@ wire [7:0] gpio0_o;
 //assign LED[7:0] = gpio0_o[7:0];
 	assign spi0_sck = gpio0_o[0];
 	assign spi0_mosi = gpio0_o[2];
-	assign spi0_sc0 = gpio0_o[3];
+	assign spi0_cs0 = gpio0_o[3];
 
 wire [7:0] gpio0_i;
 //assign gpio0_i[1:0] = KEY[1:0];
