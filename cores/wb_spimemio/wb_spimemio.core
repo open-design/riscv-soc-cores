@@ -1,0 +1,10 @@
+CAPI=1
+
+[main]
+name = wb_spimemio
+description = memory mapped SPI flash controller
+
+[verilog]
+src_files =
+  wb_spimemio.v
+  spiflash.v
