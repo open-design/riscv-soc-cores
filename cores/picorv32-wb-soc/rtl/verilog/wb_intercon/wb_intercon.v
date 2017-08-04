@@ -51,6 +51,18 @@ module wb_intercon
     input         wb_rom0_ack_i,
     input         wb_rom0_err_i,
     input         wb_rom0_rty_i,
+    output [31:0] wb_spi0memio_adr_o,
+    output [31:0] wb_spi0memio_dat_o,
+    output  [3:0] wb_spi0memio_sel_o,
+    output        wb_spi0memio_we_o,
+    output        wb_spi0memio_cyc_o,
+    output        wb_spi0memio_stb_o,
+    output  [2:0] wb_spi0memio_cti_o,
+    output  [1:0] wb_spi0memio_bte_o,
+    input  [31:0] wb_spi0memio_dat_i,
+    input         wb_spi0memio_ack_i,
+    input         wb_spi0memio_err_i,
+    input         wb_spi0memio_rty_i,
     output [31:0] wb_sram0_adr_o,
     output [31:0] wb_sram0_dat_o,
     output  [3:0] wb_sram0_sel_o,
@@ -89,9 +101,9 @@ module wb_intercon
     input         wb_sdram_reserved_rty_i);
 
 wb_mux
-  #(.num_slaves (6),
-    .MATCH_ADDR ({32'h00000000, 32'h90000000, 32'h40000000, 32'h80000000, 32'ha0000000, 32'h91000000}),
-    .MATCH_MASK ({32'hffff0000, 32'hffffffe0, 32'hffffc000, 32'hfe000000, 32'hfe000000, 32'hfffffff8}))
+  #(.num_slaves (7),
+    .MATCH_ADDR ({32'h00000000, 32'h90000000, 32'h30000000, 32'h40000000, 32'h80000000, 32'ha0000000, 32'h91000000}),
+    .MATCH_MASK ({32'hffff0000, 32'hffffffe0, 32'hff000000, 32'hffffc000, 32'hfe000000, 32'hfe000000, 32'hfffffff8}))
  wb_mux_picorv32
    (.wb_clk_i  (wb_clk_i),
     .wb_rst_i  (wb_rst_i),
@@ -107,17 +119,17 @@ wb_mux
     .wbm_ack_o (wb_picorv32_ack_o),
     .wbm_err_o (wb_picorv32_err_o),
     .wbm_rty_o (wb_picorv32_rty_o),
-    .wbs_adr_o ({wb_rom0_adr_o, wb_uart0_adr_o, wb_sram0_adr_o, wb_sdram_adr_o, wb_sdram_reserved_adr_o, wb_gpio0_adr_o}),
-    .wbs_dat_o ({wb_rom0_dat_o, wb_uart0_dat_o, wb_sram0_dat_o, wb_sdram_dat_o, wb_sdram_reserved_dat_o, wb_gpio0_dat_o}),
-    .wbs_sel_o ({wb_rom0_sel_o, wb_uart0_sel_o, wb_sram0_sel_o, wb_sdram_sel_o, wb_sdram_reserved_sel_o, wb_gpio0_sel_o}),
-    .wbs_we_o  ({wb_rom0_we_o, wb_uart0_we_o, wb_sram0_we_o, wb_sdram_we_o, wb_sdram_reserved_we_o, wb_gpio0_we_o}),
-    .wbs_cyc_o ({wb_rom0_cyc_o, wb_uart0_cyc_o, wb_sram0_cyc_o, wb_sdram_cyc_o, wb_sdram_reserved_cyc_o, wb_gpio0_cyc_o}),
-    .wbs_stb_o ({wb_rom0_stb_o, wb_uart0_stb_o, wb_sram0_stb_o, wb_sdram_stb_o, wb_sdram_reserved_stb_o, wb_gpio0_stb_o}),
-    .wbs_cti_o ({wb_rom0_cti_o, wb_uart0_cti_o, wb_sram0_cti_o, wb_sdram_cti_o, wb_sdram_reserved_cti_o, wb_gpio0_cti_o}),
-    .wbs_bte_o ({wb_rom0_bte_o, wb_uart0_bte_o, wb_sram0_bte_o, wb_sdram_bte_o, wb_sdram_reserved_bte_o, wb_gpio0_bte_o}),
-    .wbs_dat_i ({wb_rom0_dat_i, wb_uart0_dat_i, wb_sram0_dat_i, wb_sdram_dat_i, wb_sdram_reserved_dat_i, wb_gpio0_dat_i}),
-    .wbs_ack_i ({wb_rom0_ack_i, wb_uart0_ack_i, wb_sram0_ack_i, wb_sdram_ack_i, wb_sdram_reserved_ack_i, wb_gpio0_ack_i}),
-    .wbs_err_i ({wb_rom0_err_i, wb_uart0_err_i, wb_sram0_err_i, wb_sdram_err_i, wb_sdram_reserved_err_i, wb_gpio0_err_i}),
-    .wbs_rty_i ({wb_rom0_rty_i, wb_uart0_rty_i, wb_sram0_rty_i, wb_sdram_rty_i, wb_sdram_reserved_rty_i, wb_gpio0_rty_i}));
+    .wbs_adr_o ({wb_rom0_adr_o, wb_uart0_adr_o, wb_spi0memio_adr_o, wb_sram0_adr_o, wb_sdram_adr_o, wb_sdram_reserved_adr_o, wb_gpio0_adr_o}),
+    .wbs_dat_o ({wb_rom0_dat_o, wb_uart0_dat_o, wb_spi0memio_dat_o, wb_sram0_dat_o, wb_sdram_dat_o, wb_sdram_reserved_dat_o, wb_gpio0_dat_o}),
+    .wbs_sel_o ({wb_rom0_sel_o, wb_uart0_sel_o, wb_spi0memio_sel_o, wb_sram0_sel_o, wb_sdram_sel_o, wb_sdram_reserved_sel_o, wb_gpio0_sel_o}),
+    .wbs_we_o  ({wb_rom0_we_o, wb_uart0_we_o, wb_spi0memio_we_o, wb_sram0_we_o, wb_sdram_we_o, wb_sdram_reserved_we_o, wb_gpio0_we_o}),
+    .wbs_cyc_o ({wb_rom0_cyc_o, wb_uart0_cyc_o, wb_spi0memio_cyc_o, wb_sram0_cyc_o, wb_sdram_cyc_o, wb_sdram_reserved_cyc_o, wb_gpio0_cyc_o}),
+    .wbs_stb_o ({wb_rom0_stb_o, wb_uart0_stb_o, wb_spi0memio_stb_o, wb_sram0_stb_o, wb_sdram_stb_o, wb_sdram_reserved_stb_o, wb_gpio0_stb_o}),
+    .wbs_cti_o ({wb_rom0_cti_o, wb_uart0_cti_o, wb_spi0memio_cti_o, wb_sram0_cti_o, wb_sdram_cti_o, wb_sdram_reserved_cti_o, wb_gpio0_cti_o}),
+    .wbs_bte_o ({wb_rom0_bte_o, wb_uart0_bte_o, wb_spi0memio_bte_o, wb_sram0_bte_o, wb_sdram_bte_o, wb_sdram_reserved_bte_o, wb_gpio0_bte_o}),
+    .wbs_dat_i ({wb_rom0_dat_i, wb_uart0_dat_i, wb_spi0memio_dat_i, wb_sram0_dat_i, wb_sdram_dat_i, wb_sdram_reserved_dat_i, wb_gpio0_dat_i}),
+    .wbs_ack_i ({wb_rom0_ack_i, wb_uart0_ack_i, wb_spi0memio_ack_i, wb_sram0_ack_i, wb_sdram_ack_i, wb_sdram_reserved_ack_i, wb_gpio0_ack_i}),
+    .wbs_err_i ({wb_rom0_err_i, wb_uart0_err_i, wb_spi0memio_err_i, wb_sram0_err_i, wb_sdram_err_i, wb_sdram_reserved_err_i, wb_gpio0_err_i}),
+    .wbs_rty_i ({wb_rom0_rty_i, wb_uart0_rty_i, wb_spi0memio_rty_i, wb_sram0_rty_i, wb_sdram_rty_i, wb_sdram_reserved_rty_i, wb_gpio0_rty_i}));
 
 endmodule

@@ -5,6 +5,7 @@ depend =
   picorv32
   or1k_bootloaders-0.9
   uart16550-1.5.4
+  wb_spimemio
   wb_ram-1.0
   wb_sdram_ctrl-r2
   gpio

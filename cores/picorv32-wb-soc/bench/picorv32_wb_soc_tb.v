@@ -98,10 +98,15 @@ module picorv32_wb_soc_tb;
 	wire sdram_dq_oe;
 	wire [1:0] sdram_dqm_pad;
 
+	wire spi0_cs0;
+	wire spi0_miso;
+	wire spi0_mosi;
+	wire spi0_sclk;
+
 	picorv32_wb_soc #(
 		.SIM (1),
-		.PROGADDR_RESET (32'h 0000_0000),
-		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/barebox_memtest2.txt"),
+		.PROGADDR_RESET (32'h 3000_0000),
+		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_10MHz_9600.txt"),
 		.BOOTROM_MEMDEPTH (65536),
 
 		// MT48LC4M16A2
@@ -135,7 +140,12 @@ module picorv32_wb_soc_tb;
 		.sdram_dq_i		(sdram_dq_i[15:0]),
 		.sdram_dq_oe		(sdram_dq_oe),
 		.sdram_dqm_pad_o	(sdram_dqm_pad[1:0]),
-		.sdram_cke_pad_o	()
+		.sdram_cke_pad_o	(),
+
+		.spi0_cs0 (spi0_cs0),
+		.spi0_miso (spi0_miso),
+		.spi0_mosi (spi0_mosi),
+		.spi0_sclk (spi0_sclk)
 	);
 
 	assign	sdram_dq_i = sdram_dq_pad;
@@ -159,6 +169,16 @@ module picorv32_wb_soc_tb;
 		.dqm_i(sdram_dqm_pad[1:0]),
 		.ras_i(sdram_ras_pad),
 		.we_i(sdram_we_pad)
+	);
+
+	spiflash #(
+		.MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt")
+	)
+	spiflash0 (
+		.spi_cs (spi0_cs0),
+		.spi_miso (spi0_miso),
+		.spi_mosi (spi0_mosi),
+		.spi_sclk (spi0_sclk)
 	);
 
 endmodule

@@ -44,6 +44,11 @@ module picorv32_wb_soc #(
 	input  uart_rx,
 	output uart_tx,
 
+	output spi0_cs0,
+	output spi0_sclk,
+	output spi0_mosi,
+	input spi0_miso,
+
 	input [7:0] gpio0_i,
 	output [7:0] gpio0_o,
 	output [7:0] gpio0_dir_o
@@ -110,6 +115,22 @@ wb_sdram_ctrl0 (
 	.wb_dat_o	({wb_s2m_sdram_reserved_dat, wb_s2m_sdram_dat}),
 	.wb_ack_o	({wb_s2m_sdram_reserved_ack, wb_s2m_sdram_ack})
 );
+
+	wb_spimemio spi0memio (
+		.wb_clk_i(wb_clk),
+		.wb_rst_i(wb_rst),
+
+		.wb_adr_i(wb_m2s_spi0memio_adr),
+		.wb_stb_i(wb_m2s_spi0memio_stb),
+		.wb_cyc_i(wb_m2s_spi0memio_cyc),
+		.wb_dat_o(wb_s2m_spi0memio_dat),
+		.wb_ack_o(wb_s2m_spi0memio_ack),
+
+		.spi_cs(spi0_cs0),
+		.spi_sclk(spi0_sclk),
+		.spi_mosi(spi0_mosi),
+		.spi_miso(spi0_miso)
+	);
 
 	wb_ram #(
 		.depth (SRAM0_MEMDEPTH),

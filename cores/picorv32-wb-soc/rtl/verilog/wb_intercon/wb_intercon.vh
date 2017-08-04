@@ -48,6 +48,18 @@ wire [31:0] wb_s2m_rom0_dat;
 wire        wb_s2m_rom0_ack;
 wire        wb_s2m_rom0_err;
 wire        wb_s2m_rom0_rty;
+wire [31:0] wb_m2s_spi0memio_adr;
+wire [31:0] wb_m2s_spi0memio_dat;
+wire  [3:0] wb_m2s_spi0memio_sel;
+wire        wb_m2s_spi0memio_we;
+wire        wb_m2s_spi0memio_cyc;
+wire        wb_m2s_spi0memio_stb;
+wire  [2:0] wb_m2s_spi0memio_cti;
+wire  [1:0] wb_m2s_spi0memio_bte;
+wire [31:0] wb_s2m_spi0memio_dat;
+wire        wb_s2m_spi0memio_ack;
+wire        wb_s2m_spi0memio_err;
+wire        wb_s2m_spi0memio_rty;
 wire [31:0] wb_m2s_sram0_adr;
 wire [31:0] wb_m2s_sram0_dat;
 wire  [3:0] wb_m2s_sram0_sel;
@@ -136,6 +148,18 @@ wb_intercon wb_intercon0
     .wb_rom0_ack_i           (wb_s2m_rom0_ack),
     .wb_rom0_err_i           (wb_s2m_rom0_err),
     .wb_rom0_rty_i           (wb_s2m_rom0_rty),
+    .wb_spi0memio_adr_o      (wb_m2s_spi0memio_adr),
+    .wb_spi0memio_dat_o      (wb_m2s_spi0memio_dat),
+    .wb_spi0memio_sel_o      (wb_m2s_spi0memio_sel),
+    .wb_spi0memio_we_o       (wb_m2s_spi0memio_we),
+    .wb_spi0memio_cyc_o      (wb_m2s_spi0memio_cyc),
+    .wb_spi0memio_stb_o      (wb_m2s_spi0memio_stb),
+    .wb_spi0memio_cti_o      (wb_m2s_spi0memio_cti),
+    .wb_spi0memio_bte_o      (wb_m2s_spi0memio_bte),
+    .wb_spi0memio_dat_i      (wb_s2m_spi0memio_dat),
+    .wb_spi0memio_ack_i      (wb_s2m_spi0memio_ack),
+    .wb_spi0memio_err_i      (wb_s2m_spi0memio_err),
+    .wb_spi0memio_rty_i      (wb_s2m_spi0memio_rty),
     .wb_sram0_adr_o          (wb_m2s_sram0_adr),
     .wb_sram0_dat_o          (wb_m2s_sram0_dat),
     .wb_sram0_sel_o          (wb_m2s_sram0_sel),
