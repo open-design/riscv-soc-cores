@@ -1,3 +1,5 @@
+`default_nettype none
+
 module picorv32_wb_soc #(
 	parameter SIM = 0,
 	parameter PROGADDR_RESET = 32'h 0000_0000,
