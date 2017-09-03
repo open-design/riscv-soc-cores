@@ -2,6 +2,7 @@ module marsohod2_picorv32_wb_soc(
 	input  CLK100MHZ,
 	output [3:0] LED,
 	inout [7:0] IO,
+	input KEY0,
 	input KEY1,
 	input FTDI_BD0,		/* SK_i, TCK_i, TXD_i */
 	output FTDI_BD1,	/* DO_o, TDI_o, RXD_o */
