@@ -8,6 +8,16 @@ depend =
   picorv32-wb-soc
   riscv-nmon
 
+backend = quartus
+
+[quartus]
+family = "MAX 10"
+device = 10M50SAE144C8GES
+sdc_files = data/marsohod3.sdc
+tcl_files = data/marsohod3-pinmap.tcl
+            data/options.tcl
+top_module = marsohod3_picorv32_wb_soc
+
 [verilog]
 src_files =
   rtl/verilog/aux.v
