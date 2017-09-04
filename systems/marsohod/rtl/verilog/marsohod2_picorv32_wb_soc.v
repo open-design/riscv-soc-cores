@@ -1,5 +1,5 @@
 module marsohod2_picorv32_wb_soc(
-	input  CLK100MHZ,
+	input CLK100MHZ,
 	output [3:0] LED,
 	inout [7:0] IO,
 	input KEY0,
