@@ -16,9 +16,9 @@ module marsohod3_picorv32_wb_soc(
 		.DEVICE_FAMILY ("MAX 10"),
 		.INPUT_FREQUENCY (100),
 
-		/* wb_clk: 10 MHz */
-		.WB_DIVIDE_BY (10),
-		.WB_MULTIPLY_BY (1)
+		/* wb_clk: 24 MHz */
+		.WB_DIVIDE_BY (25),
+		.WB_MULTIPLY_BY (6)
 	)
 	clkgen(
 		.sys_clk_pad_i(CLK100MHZ),
@@ -29,7 +29,7 @@ module marsohod3_picorv32_wb_soc(
 	);
 
 	picorv32_wb_soc #(
-		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_10MHz_9600.txt"),
+		.BOOTROM_MEMFILE ("nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024)
 	)
 	soc(
