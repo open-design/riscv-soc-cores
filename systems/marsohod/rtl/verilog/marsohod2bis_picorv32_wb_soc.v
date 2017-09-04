@@ -9,28 +9,32 @@ module marsohod2bis_picorv32_wb_soc(
 	input FTDI_BD3		/* CS_i, TMS_i, CTS#_i */
 	);
 
-	wire clk10m;
+	wire wb_clk;
+	wire wb_rst;
 
-	altpll0 pll(
-		.inclk0(CLK100MHZ),
-		.c0(clk10m)
+	altpll_wb_clkgen #(
+		.DEVICE_FAMILY ("Cyclone IV E"),
+		.INPUT_FREQUENCY (100),
+
+		/* wb_clk: 10 MHz */
+		.WB_DIVIDE_BY (10),
+		.WB_MULTIPLY_BY (1)
+	)
+	clkgen(
+		.sys_clk_pad_i(CLK100MHZ),
+		.rst_n_pad_i(KEY0),
+
+		.wb_clk_o(wb_clk),
+		.wb_rst_o(wb_rst)
 	);
-
-	wire [35:0] cout;
-	counter counter(.out(cout), .clk(clk10m), .reset(0));
-	wire slow_clock = cout[8];
-
-	wire my_reset;
-	assign LED[0] = my_reset;
-	reset mreset(slow_clock, my_reset);
 
 	picorv32_wb_soc #(
 		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_10MHz_9600.txt"),
 		.BOOTROM_MEMDEPTH (1024)
 	)
 	soc(
-		.clock(clk10m),
-		.reset(my_reset),
+		.clock(wb_clk),
+		.reset(wb_rst),
 		.wb_iadr_o(),
 		.uart_rx(FTDI_BD0),
 		.uart_tx(FTDI_BD1)

@@ -5,6 +5,7 @@ name = marsohod2bis-picorv32-wb-soc
 description = RISC-V SoC for Marsohod2bis
 
 depend =
+  altera_clkgen
   picorv32-wb-soc
   riscv-nmon
 
@@ -20,6 +21,4 @@ top_module = marsohod2bis_picorv32_wb_soc
 
 [verilog]
 src_files =
-  rtl/verilog/aux.v
   rtl/verilog/marsohod2bis_picorv32_wb_soc.v
-  rtl/verilog/cyclone4-altpll/altpll0.v
