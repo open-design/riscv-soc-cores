@@ -9,6 +9,17 @@ depend =
   picorv32-wb-soc
   riscv-nmon
 
+backend = quartus
+
+[quartus]
+family = "Cyclone V"
+device = 5CSEBA6U23I7
+sdc_files = data/de10-nano.sdc
+tcl_files = data/de10-nano-pinmap.tcl
+            data/options.tcl
+top_module = de10_nano_picorv32_wb_soc
+quartus_options = --64bit
+
 [verilog]
 src_files =
   rtl/verilog/de10-nano_picorv32_wb_soc.v
