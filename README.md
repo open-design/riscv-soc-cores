@@ -42,6 +42,13 @@ $ gtkwave build/picorv32-wb-soc_0/sim-icarus/picorv32-wb-soc.vcd
 
 # Build
 
+DE0-Nano:
+
+```
+$ export PATH=$PATH:/opt/altera/17.0/quartus/bin
+$ fusesoc --cores-root cores/ build de0-nano-picorv32-wb-soc
+```
+
 Marsohod2 needs Quartus <= 13.1:
 
 ```
@@ -58,6 +65,12 @@ $ fusesoc --cores-root cores/ build marsohod3-picorv32-wb-soc
 
 
 # Programmming FPGA
+
+DE0-Nano:
+
+Use Quartus Programmer software to upload
+build/de0-nano-picorv32-wb-soc_0/bld-quartus/de0-nano-picorv32-wb-soc_0.sof
+file into the FPGA.
 
 Marsohod2:
 
