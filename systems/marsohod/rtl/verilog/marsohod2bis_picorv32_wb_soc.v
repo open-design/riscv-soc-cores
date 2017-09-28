@@ -13,11 +13,26 @@ module marsohod2bis_picorv32_wb_soc(
 	output [1:0] SDRAM_DQM,
 	inout [15:0] SDRAM_DQ,
 
+	output EPCS_DCLK,
+	input EPCS_DATA0,
+	output EPCS_NCSO,
+	output EPCS_ASDO,
+
 	input FTDI_BD0,		/* SK_i, TCK_i, TXD_i */
 	output FTDI_BD1,	/* DO_o, TDI_o, RXD_o */
 	input FTDI_BD2,		/* DI_i, TDO_i, RTS#_i */
 	input FTDI_BD3		/* CS_i, TMS_i, CTS#_i */
 	);
+
+	wire spi0_sck;
+	wire spi0_miso;
+	wire spi0_mosi;
+	wire spi0_cs0;
+
+	assign EPCS_DCLK = spi0_sck;
+	assign spi0_miso = EPCS_DATA0;
+	assign EPCS_ASDO = spi0_mosi;
+	assign EPCS_NCSO = spi0_cs0;
 
 	wire wb_clk;
 	wire wb_rst;
@@ -55,10 +70,16 @@ module marsohod2bis_picorv32_wb_soc(
 	assign SDRAM_DQ = sdram_dq_oe ? sdram_dq_o : 16'bz;
 	assign SDRAM_CLK = sdram_clk;
 
-wire [7:0] gpio0_o;
-assign LED[2:0] = gpio0_o[2:0];
+	wire [7:0] gpio0_o;
+	//assign spi0_sck = gpio0_o[0];
+	//assign spi0_mosi = gpio0_o[2];
+	//assign spi0_cs0 = gpio0_o[3];
+
+	wire [7:0] gpio0_i;
+	//assign gpio0_i[1] = spi0_miso;
 
 	picorv32_wb_soc #(
+		.PROGADDR_RESET (32'h 3004_0000),
 		.BOOTROM_MEMFILE ("nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024),
 
@@ -100,7 +121,12 @@ assign LED[2:0] = gpio0_o[2:0];
 		.sdram_dqm_pad_o	(SDRAM_DQM[1:0]),
 		.sdram_cke_pad_o	(),
 
-		.gpio0_i		(),
+		.spi0_cs0 (spi0_cs0),
+		.spi0_miso (spi0_miso),
+		.spi0_mosi (spi0_mosi),
+		.spi0_sclk (spi0_sck),
+
+		.gpio0_i		(gpio0_i),
 		.gpio0_o		(gpio0_o),
 		.gpio0_dir_o		()
 	);

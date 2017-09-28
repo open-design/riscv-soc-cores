@@ -49,6 +49,16 @@ set_location_assignment PIN_84 -to LED[1]
 set_location_assignment PIN_85 -to LED[0]
 
 set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_FLASH_NCE_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DATA0_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DATA1_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DCLK_AFTER_CONFIGURATION "USE AS REGULAR IO"
+
+set_location_assignment PIN_12 -to EPCS_DCLK
+set_location_assignment PIN_13 -to EPCS_DATA0
+set_location_assignment PIN_8 -to EPCS_NCSO
+set_location_assignment PIN_6 -to EPCS_ASDO
+
 set_location_assignment PIN_101 -to IO[0]
 set_location_assignment PIN_103 -to IO[1]
 set_location_assignment PIN_104 -to IO[2]
