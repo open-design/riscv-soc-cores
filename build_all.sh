@@ -42,7 +42,9 @@ build_quartus()
 	export PATH=$SAVE_PATH
 }
 
-build_quartus q16.0 /opt/altera/16.0/quartus/bin \
-	marsohod2bis-picorv32-wb-soc,marsohod3-picorv32-wb-soc
+SOC=-picorv32-wb-soc
+
+build_quartus q16.1 /opt/altera/16.1/quartus/bin \
+	de0-nano${SOC},marsohod2bis${SOC},marsohod3${SOC}
 build_quartus q13.1 /opt/altera/13.1/quartus/bin \
-	marsohod2-picorv32-wb-soc,marsohod2bis-picorv32-wb-soc
+	de0-nano${SOC},marsohod2${SOC},marsohod2bis${SOC}
