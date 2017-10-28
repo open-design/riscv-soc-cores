@@ -1,0 +1,18 @@
+CAPI=1
+
+[main]
+name = max3000
+description = MAX3000 project
+
+backend = quartus
+
+[quartus]
+family = MAX3000A
+device = EPM3032ATC44-10
+tcl_files = data/pinmap.tcl
+            data/options.tcl
+top_module = max3000a
+
+[verilog]
+src_files =
+  rtl/verilog/max3000a.v
