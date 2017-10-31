@@ -44,7 +44,11 @@ build_quartus()
 
 SOC=-picorv32-wb-soc
 
-build_quartus q16.1 /opt/altera/16.1/quartus/bin \
-	de0-nano${SOC},marsohod2bis${SOC},marsohod3${SOC}
+build_quartus q13.0 /opt/altera/13.0/quartus/bin \
+	core-ep2c5${SOC},de1${SOC},de0-nano${SOC},marsohod2${SOC},marsohod2bis${SOC}
 build_quartus q13.1 /opt/altera/13.1/quartus/bin \
 	de0-nano${SOC},marsohod2${SOC},marsohod2bis${SOC}
+build_quartus q16.1 /opt/altera/16.1/quartus/bin \
+	de0-nano${SOC},marsohod2bis${SOC},marsohod3${SOC}
+build_quartus q17.0 /opt/altera/17.0/quartus/bin \
+	de0-nano${SOC},marsohod2bis${SOC},marsohod3${SOC}
