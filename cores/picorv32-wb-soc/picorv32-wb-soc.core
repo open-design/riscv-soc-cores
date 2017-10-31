@@ -11,8 +11,6 @@ depend =
   gpio
   wb_intercon-1.0
   riscv-nmon
-  simple_spi-1.6
-  i2c-1.13
 
 simulators = icarus
 
