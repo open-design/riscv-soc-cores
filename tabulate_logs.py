@@ -80,7 +80,8 @@ class quartus_rpt():
         for line in txt:
 
             m = re.search(r"^; Slow 1200mV 85C Model Fmax Summary", line)
-            if m:
+            n = re.search(r"^; Slow Model Fmax Summary", line)
+            if m or n:
                 fmaxflag = True
                 line = txt.next()
                 line = txt.next()
@@ -143,6 +144,7 @@ for (quartuss, boards) in (
         (("13.0", "13.1", "17.0", "16.1"), ("de0-nano", "marsohod2bis")),
         (("17.0", "16.1"), ("marsohod3",)),
         (("13.0", "13.1"), ("marsohod2",)),
+        (("13.0",), ("core-ep2c5", "de1")),
                         ):
     for qv in quartuss:
         for b in boards:
