@@ -27,6 +27,7 @@ module core_ep2c5_picorv32_wb_soc(
 	picorv32_wb_soc #(
 		.BOOTROM_MEMFILE ("nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024),
+
 		.SRAM0_MEMDEPTH (8192)
 	)
 	soc(

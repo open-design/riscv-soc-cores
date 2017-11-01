@@ -61,7 +61,8 @@ assign LED[7:0] = gpio0_o[7:0];
 	picorv32_wb_soc #(
 		.BOOTROM_MEMFILE ("nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024),
-		.SRAM0_MEMDEPTH (65536),
+
+		.SRAM0_MEMDEPTH (8192),
 
 		// MT48LC4M16A2
 		.SDRAM_CLK_FREQ_MHZ	(75),	// sdram_clk freq in MHZ

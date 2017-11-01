@@ -67,7 +67,7 @@ module de1_picorv32_wb_soc(
 		.BOOTROM_MEMFILE ("nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024),
 
-		.SRAM0_MEMDEPTH (16384),
+		.SRAM0_MEMDEPTH (8192),
 
 		// ISSI IS42S16400
 		.SDRAM_CLK_FREQ_MHZ	(75),	// sdram_clk freq in MHZ
