@@ -8,7 +8,6 @@ depend = wb_common
 [verilog]
 src_files =
  rtl/verilog/wb_ram.v
- rtl/verilog/wb_ram_generic.v
 
 tb_private_src_files = bench/wb_ram_tb.v
 
