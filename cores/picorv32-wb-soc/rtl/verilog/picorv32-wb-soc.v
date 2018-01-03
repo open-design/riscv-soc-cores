@@ -78,6 +78,7 @@ module picorv32_wb_soc #(
 
 	picorv32_wb #(
 		.PROGADDR_RESET (PROGADDR_RESET),
+		.COMPRESSED_ISA (1),
 		.ENABLE_MUL (1),
 		.ENABLE_DIV (1)
 	)
