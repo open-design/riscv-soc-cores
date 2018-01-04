@@ -63,59 +63,59 @@ module picorv32_wb_soc #(
 `include "wb_common_params.v"
 `include "wb_intercon.vh"
 
-wb_sdram_ctrl #(
+	wb_sdram_ctrl #(
 `ifndef SIM
-	.TECHNOLOGY	("ALTERA"),
+		.TECHNOLOGY	("ALTERA"),
 `endif
-	.CLK_FREQ_MHZ	(SDRAM_CLK_FREQ_MHZ),
-	.POWERUP_DELAY	(SDRAM_POWERUP_DELAY),
-	.REFRESH_MS	(SDRAM_REFRESH_MS),
-	.BURST_LENGTH	(SDRAM_BURST_LENGTH),
-	.WB_PORTS	(SDRAM_WB_PORTS),
-	.BUF_WIDTH	(SDRAM_BUF_WIDTH),
-	.ROW_WIDTH	(SDRAM_ROW_WIDTH),
-	.COL_WIDTH	(SDRAM_COL_WIDTH),
-	.BA_WIDTH	(SDRAM_BA_WIDTH),
-	.tCAC		(SDRAM_tCAC),
-	.tRAC		(SDRAM_tRAC),
-	.tRP		(SDRAM_tRP),
-	.tRC		(SDRAM_tRC),
-	.tMRD		(SDRAM_tMRD)
-)
-wb_sdram_ctrl0 (
-	.wb_clk		(wb_clk),
-	.wb_rst		(wb_rst),
+		.CLK_FREQ_MHZ	(SDRAM_CLK_FREQ_MHZ),
+		.POWERUP_DELAY	(SDRAM_POWERUP_DELAY),
+		.REFRESH_MS	(SDRAM_REFRESH_MS),
+		.BURST_LENGTH	(SDRAM_BURST_LENGTH),
+		.WB_PORTS	(SDRAM_WB_PORTS),
+		.BUF_WIDTH	(SDRAM_BUF_WIDTH),
+		.ROW_WIDTH	(SDRAM_ROW_WIDTH),
+		.COL_WIDTH	(SDRAM_COL_WIDTH),
+		.BA_WIDTH	(SDRAM_BA_WIDTH),
+		.tCAC		(SDRAM_tCAC),
+		.tRAC		(SDRAM_tRAC),
+		.tRP		(SDRAM_tRP),
+		.tRC		(SDRAM_tRC),
+		.tMRD		(SDRAM_tMRD)
+	)
+	wb_sdram_ctrl0 (
+		.wb_clk		(wb_clk),
+		.wb_rst		(wb_rst),
 
-	.ba_pad_o	(sdram_ba_pad_o[1:0]),
-	.a_pad_o	(sdram_a_pad_o[12:0]),
-	.cs_n_pad_o	(sdram_cs_n_pad_o),
-	.ras_pad_o	(sdram_ras_pad_o),
-	.cas_pad_o	(sdram_cas_pad_o),
-	.we_pad_o	(sdram_we_pad_o),
-	.dq_i		(sdram_dq_i[15:0]),
-	.dq_o		(sdram_dq_o[15:0]),
-	.dq_oe		(sdram_dq_oe),
-	.dqm_pad_o	(sdram_dqm_pad_o[1:0]),
-	.cke_pad_o	(sdram_cke_pad_o),
-	.sdram_clk	(sdram_clk),
-	.sdram_rst	(sdram_rst),
+		.ba_pad_o	(sdram_ba_pad_o[1:0]),
+		.a_pad_o	(sdram_a_pad_o[12:0]),
+		.cs_n_pad_o	(sdram_cs_n_pad_o),
+		.ras_pad_o	(sdram_ras_pad_o),
+		.cas_pad_o	(sdram_cas_pad_o),
+		.we_pad_o	(sdram_we_pad_o),
+		.dq_i		(sdram_dq_i[15:0]),
+		.dq_o		(sdram_dq_o[15:0]),
+		.dq_oe		(sdram_dq_oe),
+		.dqm_pad_o	(sdram_dqm_pad_o[1:0]),
+		.cke_pad_o	(sdram_cke_pad_o),
+		.sdram_clk	(sdram_clk),
+		.sdram_rst	(sdram_rst),
 
-// unused: wb_s2m_sdram*_err, wb_s2m_sdram*_rty
+	// unused: wb_s2m_sdram*_err, wb_s2m_sdram*_rty
 
-	.wb_adr_i	({
+		.wb_adr_i	({
 				{7'h00, wb_m2s_sdram_reserved_adr[24:0]},
 				{7'h00, wb_m2s_sdram_adr[24:0]}
 				}),
-	.wb_stb_i	({wb_m2s_sdram_reserved_stb, wb_m2s_sdram_stb}),
-	.wb_cyc_i	({wb_m2s_sdram_reserved_cyc, wb_m2s_sdram_cyc}),
-	.wb_cti_i	({wb_m2s_sdram_reserved_cti, wb_m2s_sdram_cti}),
-	.wb_bte_i	({wb_m2s_sdram_reserved_bte, wb_m2s_sdram_bte}),
-	.wb_we_i	({wb_m2s_sdram_reserved_we,  wb_m2s_sdram_we}),
-	.wb_sel_i	({wb_m2s_sdram_reserved_sel, wb_m2s_sdram_sel}),
-	.wb_dat_i	({wb_m2s_sdram_reserved_dat, wb_m2s_sdram_dat}),
-	.wb_dat_o	({wb_s2m_sdram_reserved_dat, wb_s2m_sdram_dat}),
-	.wb_ack_o	({wb_s2m_sdram_reserved_ack, wb_s2m_sdram_ack})
-);
+		.wb_stb_i	({wb_m2s_sdram_reserved_stb, wb_m2s_sdram_stb}),
+		.wb_cyc_i	({wb_m2s_sdram_reserved_cyc, wb_m2s_sdram_cyc}),
+		.wb_cti_i	({wb_m2s_sdram_reserved_cti, wb_m2s_sdram_cti}),
+		.wb_bte_i	({wb_m2s_sdram_reserved_bte, wb_m2s_sdram_bte}),
+		.wb_we_i	({wb_m2s_sdram_reserved_we,  wb_m2s_sdram_we}),
+		.wb_sel_i	({wb_m2s_sdram_reserved_sel, wb_m2s_sdram_sel}),
+		.wb_dat_i	({wb_m2s_sdram_reserved_dat, wb_m2s_sdram_dat}),
+		.wb_dat_o	({wb_s2m_sdram_reserved_dat, wb_s2m_sdram_dat}),
+		.wb_ack_o	({wb_s2m_sdram_reserved_ack, wb_s2m_sdram_ack})
+	);
 
 	wb_spimemio spi0memio (
 		.wb_clk_i(wb_clk),
@@ -188,28 +188,28 @@ wb_sdram_ctrl0 (
 		.srx_pad_i(uart_rx)
 	);
 
-gpio gpio0 (
-	// GPIO bus
-	.gpio_i		(gpio0_i),
-	.gpio_o		(gpio0_o),
-	.gpio_dir_o	(gpio0_dir_o),
+	gpio gpio0 (
+		// GPIO bus
+		.gpio_i		(gpio0_i),
+		.gpio_o		(gpio0_o),
+		.gpio_dir_o	(gpio0_dir_o),
 
-	// Wishbone slave interface
-	.wb_adr_i	(wb_m2s_gpio0_adr[2]),
-	.wb_dat_i	(wb_m2s_gpio0_dat),
-	.wb_we_i	(wb_m2s_gpio0_we),
-	.wb_cyc_i	(wb_m2s_gpio0_cyc),
-	.wb_stb_i	(wb_m2s_gpio0_stb),
-	.wb_cti_i	(wb_m2s_gpio0_cti),
-	.wb_bte_i	(wb_m2s_gpio0_bte),
-	.wb_dat_o	(wb_s2m_gpio0_dat),
-	.wb_ack_o	(wb_s2m_gpio0_ack),
-	.wb_err_o	(wb_s2m_gpio0_err),
-	.wb_rty_o	(wb_s2m_gpio0_rty),
+		// Wishbone slave interface
+		.wb_adr_i	(wb_m2s_gpio0_adr[2]),
+		.wb_dat_i	(wb_m2s_gpio0_dat),
+		.wb_we_i	(wb_m2s_gpio0_we),
+		.wb_cyc_i	(wb_m2s_gpio0_cyc),
+		.wb_stb_i	(wb_m2s_gpio0_stb),
+		.wb_cti_i	(wb_m2s_gpio0_cti),
+		.wb_bte_i	(wb_m2s_gpio0_bte),
+		.wb_dat_o	(wb_s2m_gpio0_dat),
+		.wb_ack_o	(wb_s2m_gpio0_ack),
+		.wb_err_o	(wb_s2m_gpio0_err),
+		.wb_rty_o	(wb_s2m_gpio0_rty),
 
-	.wb_clk		(wb_clk),
-	.wb_rst		(wb_rst)
-);
+		.wb_clk		(wb_clk),
+		.wb_rst		(wb_rst)
+	);
 
 	picorv32_wb #(
 		.PROGADDR_RESET (PROGADDR_RESET),
