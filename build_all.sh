@@ -71,7 +71,7 @@ build_vivado()
 #build_vivado v2017.1 /opt/xilinx/2017.1/Vivado/2017.1 \
 #	arty-picorv32-wb-soc
 #
-#build_vivado v2016.3 /opt/xilinx/2013.3/Vivado/2013.3 \
+#build_vivado v2016.3 /opt/xilinx/2016.3/Vivado/2016.3 \
 #	arty-picorv32-wb-soc
 
 build_quartus q16.0 /opt/altera/16.0/quartus/bin \
