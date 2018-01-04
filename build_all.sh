@@ -68,13 +68,16 @@ build_vivado()
 	mv build build.${VIVADO_NAME}
 }
 
+SOC=picorv32-wb-soc
+
 #build_vivado v2017.1 /opt/xilinx/2017.1/Vivado/2017.1 \
-#	arty-picorv32-wb-soc
+#	arty-$SOC
 #
 #build_vivado v2016.3 /opt/xilinx/2016.3/Vivado/2016.3 \
-#	arty-picorv32-wb-soc
+#	arty-$SOC
 
-build_quartus q16.0 /opt/altera/16.0/quartus/bin \
-	marsohod2bis-picorv32-wb-soc,marsohod3-picorv32-wb-soc
-build_quartus q13.1 /opt/altera/13.1/quartus/bin \
-	marsohod2-picorv32-wb-soc,marsohod2bis-picorv32-wb-soc
+Q=13.1; build_quartus q$Q /opt/altera/$Q/quartus/bin \
+	marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC
+
+Q=17.1; build_quartus q$Q /opt/altera/$Q/quartus/bin \
+	marsohod2bis-$SOC,core-ep4ce6-$SOC,marsohod3-$SOC,c10lp-evkit-$SOC
