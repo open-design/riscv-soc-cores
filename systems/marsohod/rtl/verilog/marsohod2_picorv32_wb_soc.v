@@ -61,6 +61,12 @@ module marsohod2_picorv32_wb_soc(
 
 	wire [7:0] gpio0_i;
 
+	wire uart0_rx;
+	wire uart0_tx;
+
+	assign uart0_rx = FTDI_BD0;
+	assign FTDI_BD1 = uart0_tx;
+
 	picorv32_wb_soc #(
 		.BOOTROM_MEMFILE ("nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024),
@@ -84,8 +90,8 @@ module marsohod2_picorv32_wb_soc(
 		.clock(wb_clk),
 		.reset(wb_rst),
 		.wb_iadr_o(),
-		.uart_rx(FTDI_BD0),
-		.uart_tx(FTDI_BD1),
+		.uart_rx(uart0_rx),
+		.uart_tx(uart0_tx),
 
 		.sdram_clk		(sdram_clk),
 		.sdram_rst		(sdram_rst),
