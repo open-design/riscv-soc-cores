@@ -15,7 +15,7 @@ backend = quartus
 family = "Cyclone III"
 device = EP3C10E144C8
 sdc_files = data/marsohod2.sdc
-tcl_files = data/pinmap.tcl
+tcl_files = data/marsohod2-pinmap.tcl
             data/options.tcl
 top_module = marsohod2_picorv32_wb_soc
 
