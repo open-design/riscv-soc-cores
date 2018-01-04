@@ -1,0 +1,24 @@
+CAPI=1
+
+[main]
+name = c10lp-evkit-picorv32-wb-soc
+description = RISC-V SoC for Cyclone 10 LP Evaluation Kit
+
+depend =
+  altera_clkgen
+  picorv32-wb-soc
+  riscv-nmon
+
+backend = quartus
+
+[quartus]
+family = "Cyclone 10 LP"
+device = 10CL025YU256I7G
+sdc_files = data/c10lp-evkit.sdc
+tcl_files = data/c10lp-evkit-pinmap.tcl
+            data/options.tcl
+top_module = c10lp_evkit_picorv32_wb_soc
+
+[verilog]
+src_files =
+  rtl/verilog/c10lp_evkit_picorv32_wb_soc.v
