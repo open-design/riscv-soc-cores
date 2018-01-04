@@ -88,7 +88,7 @@ module marsohod2bis_picorv32_wb_soc(
 	soc(
 		.clock(wb_clk),
 		.reset(wb_rst),
-		.wb_iadr_o(),
+
 		.uart_rx(uart0_rx),
 		.uart_tx(uart0_tx),
 
