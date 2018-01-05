@@ -76,6 +76,9 @@ SOC=picorv32-wb-soc
 #build_vivado v2016.3 /opt/xilinx/2016.3/Vivado/2016.3 \
 #	arty-$SOC
 
+Q=13.0; build_quartus q$Q /opt/altera/$Q/quartus/bin \
+	core-ep2c5-$SOC,de1-$SOC,marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC
+
 Q=13.1; build_quartus q$Q /opt/altera/$Q/quartus/bin \
 	marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC
 
