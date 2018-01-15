@@ -20,6 +20,7 @@ Currently supported FPGA boards:
 | | [Cyclone IV](https://www.altera.com/products/fpga/cyclone-series/cyclone-iv/overview.html)
 | [Waveshare CoreEP4CE6](http://www.waveshare.com/wiki/CoreEP4CE6) | EP4CE6E22C8 | 16 KiB |   |
 | [Marsohod2bis](https://marsohod.org/11-blog/289-marsohod2bis)    | EP4CE6E22C8 | 16 KiB | 8 MiB SDRAM  |
+| [DE0-Nano](http://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=593) | EP4CE22F17C6 | 32 KiB | 32 MiB SDRAM |
 | | [MAX 10](https://www.altera.com/products/fpga/max-series/max-10/overview.html)
 | [Marsohod3](https://marsohod.org/howtostart/plata-marsokhod3) | 10M50SAE144C8GES | 64 KiB | 8 MiB SDRAM |
 | | [Cyclone 10 LP](https://www.altera.com/products/fpga/cyclone-series/cyclone-10/cyclone-10-lp/overview.html)
