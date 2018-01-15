@@ -77,10 +77,10 @@ SOC=picorv32-wb-soc
 #	arty-$SOC
 
 Q=13.0; build_quartus q$Q /opt/altera/$Q/quartus/bin \
-	core-ep2c5-$SOC,de1-$SOC,marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC
+	core-ep2c5-$SOC,de1-$SOC,marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC
 
 Q=13.1; build_quartus q$Q /opt/altera/$Q/quartus/bin \
-	marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC
+	marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC
 
 Q=17.1; build_quartus q$Q /opt/altera/$Q/quartus/bin \
-	marsohod2bis-$SOC,core-ep4ce6-$SOC,marsohod3-$SOC,c10lp-evkit-$SOC
+	marsohod2bis-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC,marsohod3-$SOC,c10lp-evkit-$SOC
