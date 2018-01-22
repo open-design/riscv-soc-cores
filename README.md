@@ -23,6 +23,7 @@ Currently supported FPGA boards:
 | [DE0-Nano](http://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=593) | EP4CE22F17C6 | 32 KiB | 32 MiB SDRAM |
 | | [MAX 10](https://www.altera.com/products/fpga/max-series/max-10/overview.html)
 | [Marsohod3](https://marsohod.org/howtostart/plata-marsokhod3) | 10M50SAE144C8GES | 64 KiB | 8 MiB SDRAM |
+| [Marsohod3bis](https://marsohod.org/howtostart/plata-marsokhod3) | 10M08SAE144C8GES | 32 KiB |             |
 | | [Cyclone 10 LP](https://www.altera.com/products/fpga/cyclone-series/cyclone-10/cyclone-10-lp/overview.html)
 | [Intel Cyclone 10 LP FPGA Evaluation Kit](https://www.altera.com/products/boards_and_kits/dev-kits/altera/cyclone-10-lp-evaluation-kit.html) | 10CL025YU256I7G | 16 KiB |   |
 | | [Artix-7](https://www.xilinx.com/products/silicon-devices/fpga/artix-7.html)
