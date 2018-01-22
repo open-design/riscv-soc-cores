@@ -83,4 +83,4 @@ Q=13.1; build_quartus q$Q /opt/altera/$Q/quartus/bin \
 	marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC
 
 Q=17.1; build_quartus q$Q /opt/altera/$Q/quartus/bin \
-	marsohod2bis-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC,marsohod3-$SOC,c10lp-evkit-$SOC
+	marsohod2bis-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC,marsohod3-$SOC,marsohod3bis-$SOC,c10lp-evkit-$SOC
