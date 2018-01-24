@@ -76,11 +76,17 @@ SOC=picorv32-wb-soc
 #build_vivado v2016.3 /opt/xilinx/2016.3/Vivado/2016.3 \
 #	arty-$SOC
 
+C2_BRDS=core-ep2c5-$SOC,de1-$SOC
+C3_BRDS=marsohod2-$SOC
+C4_BRDS=marsohod2bis-$SOC,marsohod2rpi-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC
+M10_BRDS=marsohod3-$SOC,marsohod3bis-$SOC
+C10_BRDS=c10lp-evkit-$SOC
+
 Q=13.0; build_quartus q$Q /opt/altera/$Q/quartus/bin \
-	core-ep2c5-$SOC,de1-$SOC,marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC
+	$C2_BRDS,$C3_BRDS,$C4_BRDS
 
 Q=13.1; build_quartus q$Q /opt/altera/$Q/quartus/bin \
-	marsohod2-$SOC,marsohod2bis-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC
+	$C3_BRDS,$C4_BRDS
 
 Q=17.1; build_quartus q$Q /opt/altera/$Q/quartus/bin \
-	marsohod2bis-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC,marsohod3-$SOC,marsohod3bis-$SOC,c10lp-evkit-$SOC
+	$C4_BRDS,$M10_BRDS,$C10_BRDS
