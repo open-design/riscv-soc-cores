@@ -16,3 +16,11 @@ See also
 
   * FTDI_BD0 --- 141 (IO8_141/DIFFIO_RX_T52N)
   * FTDI_BD1 --- 140 (IO8_140/DIFFIO_RX_T52P)
+
+
+Marsohod2RPI
+------------
+
+Toggle reset on RPi GPIO8:
+
+  # ( PIN=8; cd /sys/class/gpio; echo $PIN > export; echo low > gpio$PIN/direction; echo $PIN > unexport )
