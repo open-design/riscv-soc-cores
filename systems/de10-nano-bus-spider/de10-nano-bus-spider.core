@@ -1,0 +1,36 @@
+CAPI=1
+
+[main]
+name = de10-nano-bus-spider
+description = DE10-Nano Bus Spider Design for InnovateFPGA-2018
+
+depend =
+  altera_clkgen
+  picorv32
+  or1k_bootloaders-0.9
+  uart16550-1.5.4
+  wb_ram-1.0
+  gpio
+  wb_intercon-1.0
+  riscv-nmon
+
+backend = quartus
+
+[quartus]
+family = "Cyclone V"
+device = 5CSEBA6U23I7
+sdc_files = data/de10-nano-bus-spider.sdc
+tcl_files = data/de10-nano-bus-spider.qsf
+qsys_files = data/soc_system.qsys
+top_module = de10_nano_bus_spider
+quartus_options = --64bit
+
+[verilog]
+src_files =
+  rtl/verilog/de10-nano-bus-spider.v
+  rtl/verilog/altera_ip/debounce/debounce.v
+  rtl/verilog/picorv32-wb-soc.v
+  rtl/verilog/wb_intercon/wb_intercon.v
+
+include_files =
+  rtl/verilog/wb_intercon/wb_intercon.vh

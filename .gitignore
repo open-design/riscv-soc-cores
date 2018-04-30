@@ -4,3 +4,4 @@ fusesoc.log
 *.pyc
 /REPORT.*
 /build.*
+.qsys_edit
