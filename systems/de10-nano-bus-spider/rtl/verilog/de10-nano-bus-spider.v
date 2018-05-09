@@ -92,8 +92,7 @@ wire [31:0] hps_0_f2h_irq0_irq;
 soc_system u0 (
 	.clk_clk (wb_clk),
 
-	.hps_0_h2f_reset_reset_n (hps_fpga_reset_n),
-	.reset_reset_n (hps_fpga_reset_n),
+	.reset_reset_n (1),
 
 	.memory_mem_a (HPS_DDR3_ADDR),
 	.memory_mem_ba (HPS_DDR3_BA),
