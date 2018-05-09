@@ -1,7 +1,6 @@
 module de10_nano_bus_spider(
 	input FPGA_CLK1_50,
 
-	inout HPS_CONV_USB_N,
 	output [14:0] HPS_DDR3_ADDR,
 	output [2:0] HPS_DDR3_BA,
 	output HPS_DDR3_CAS_N,
