@@ -131,18 +131,6 @@ soc_system u0 (
 assign hps_0_f2h_irq0_irq[0] = altr_uart0_irq;
 assign hps_0_f2h_irq0_irq[1] = altr_uart1_irq;
 
-// Debounce logic to clean out glitches within 1ms
-debounce debounce_inst (
-	.clk (FPGA_CLK1_50),
-	.reset_n (hps_fpga_reset_n),
-	.data_in (KEY),
-	.data_out (fpga_debounced_buttons)
-);
-defparam debounce_inst.WIDTH = 2;
-defparam debounce_inst.POLARITY = "LOW";
-defparam debounce_inst.TIMEOUT = 50000;      // at 50Mhz this is a debounce time of 1ms
-defparam debounce_inst.TIMEOUT_WIDTH = 16;   // ceil(log2(TIMEOUT))
-
 wire picorv32_wb_soc_reset_from_hps;
 
 assign picorv32_wb_soc_reset_from_hps = pio_export[0];

@@ -28,7 +28,6 @@ quartus_options = --64bit
 [verilog]
 src_files =
   rtl/verilog/de10-nano-bus-spider.v
-  rtl/verilog/altera_ip/debounce/debounce.v
   rtl/verilog/picorv32-wb-soc.v
   rtl/verilog/wb_intercon/wb_intercon.v
 
