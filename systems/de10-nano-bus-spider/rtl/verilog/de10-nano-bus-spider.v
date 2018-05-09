@@ -18,7 +18,6 @@ module de10_nano_bus_spider(
 	output HPS_DDR3_RESET_N,
 	input HPS_DDR3_RZQ,
 	output HPS_DDR3_WE_N,
-	inout HPS_GSENSOR_INT,
 	input HPS_UART_RX,
 	output HPS_UART_TX,
 
