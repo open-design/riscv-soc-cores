@@ -11,6 +11,8 @@ depend =
   wb_intercon-1.0
   riscv-nmon
 
+simulators = icarus
+
 [verilog]
 src_files =
   rtl/verilog/picorv32-wb-soc.v
@@ -18,3 +20,12 @@ src_files =
 
 include_files =
   rtl/verilog/wb_intercon/wb_intercon.vh
+
+tb_private_src_files =
+  bench/picorv32_wb_soc_tb.v
+
+[icarus]
+iverilog_options = -DPRESCALER_PRESET_HARD -DPRESCALER_HIGH_PRESET=0 -DPRESCALER_LOW_PRESET=2 -DSIM
+
+[simulator]
+toplevel = picorv32_wb_soc_tb
