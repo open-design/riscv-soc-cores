@@ -1,0 +1,20 @@
+CAPI=1
+
+[main]
+
+depend =
+  picorv32
+  or1k_bootloaders-0.9
+  uart16550-1.5.4
+  wb_ram-1.0
+  gpio
+  wb_intercon-1.0
+  riscv-nmon
+
+[verilog]
+src_files =
+  rtl/verilog/picorv32-wb-soc.v
+  rtl/verilog/wb_intercon/wb_intercon.v
+
+include_files =
+  rtl/verilog/wb_intercon/wb_intercon.vh
