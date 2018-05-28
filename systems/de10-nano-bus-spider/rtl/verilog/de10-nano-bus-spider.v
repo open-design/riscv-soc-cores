@@ -50,6 +50,11 @@ wire [7:0] rvsoc_gpio1_o;
 wire [7:0] rvsoc_gpio1_i;
 wire [7:0] rvsoc_gpio1_dir_o;
 
+assign `UEXT0_SPI_SCK = rvsoc_gpio0_o[0];
+assign rvsoc_gpio0_i[1] = `UEXT0_SPI_MISO;
+assign `UEXT0_SPI_MOSI = rvsoc_gpio0_o[2];
+assign `UEXT0_SPI_SSEL = rvsoc_gpio0_o[3];
+
 assign `UEXT0_I2C_SCL = rvsoc_gpio0_dir_o[4] ? rvsoc_gpio0_o[4] : 1'bz;
 assign `UEXT0_I2C_SDA = rvsoc_gpio0_dir_o[5] ? rvsoc_gpio0_o[5] : 1'bz;
 assign rvsoc_gpio0_i[4] = `UEXT0_I2C_SCL;
