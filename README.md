@@ -22,6 +22,7 @@ Currently supported FPGA boards:
 | [Marsohod2bis](https://marsohod.org/11-blog/289-marsohod2bis)    | EP4CE6E22C8 | 16 KiB | 8 MiB SDRAM  |
 | [Marsohod2RPI](https://marsohod.org/howtostart/m2rpi)                                 | EP4CE6E22C8  | 16 KiB |              |
 | [DE0-Nano](http://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=593) | EP4CE22F17C6 | 32 KiB | 32 MiB SDRAM |
+| [DE2-115](http://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=502)  | EP4CE115F29C7 | 32 KiB ? |              |
 | | [MAX 10](https://www.altera.com/products/fpga/max-series/max-10/overview.html)
 | [Marsohod3](https://marsohod.org/howtostart/plata-marsokhod3) | 10M50SAE144C8GES | 64 KiB | 8 MiB SDRAM |
 | [Marsohod3bis](https://marsohod.org/howtostart/plata-marsokhod3) | 10M08SAE144C8GES | 32 KiB |             |
