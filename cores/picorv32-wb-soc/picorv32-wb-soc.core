@@ -1,33 +1,51 @@
-CAPI=1
-[main]
+CAPI=2:
 
-depend =
-  picorv32
-  or1k_bootloaders-0.9
-  uart16550-1.5.4
-  wb_ram-1.0
-  wb_spimemio
-  wb_sdram_ctrl-r2
-  gpio
-  wb_intercon-1.0
-  riscv-nmon
+name: ::picorv32-wb-soc:0
 
-simulators = icarus
+filesets:
+  verilog_src_files:
+    depend:
+    - '>=::picorv32:0'
+    - ::or1k_bootloaders:0.9
+    - ::uart16550:1.5.4
+    - ::wb_ram:1.0
+    - '>=::wb_spimemio:0'
+    - ::wb_sdram_ctrl:0-r2
+    - '>=::gpio:0'
+    - ::wb_intercon:1.0
+    - '>=::riscv-nmon:0'
+    file_type: verilogSource
+    files:
+    - rtl/verilog/wb_intercon/wb_intercon.vh:
+        is_include_file: true
+    - rtl/verilog/picorv32-wb-soc.v
+    - rtl/verilog/wb_intercon/wb_intercon.v
+  verilog_tb_private_src_files:
+    depend:
+    - '>=::mt48lc16m16a2:0'
+    - ::vlog_tb_utils:1.0
+    - ::wb_bfm:1.0
+    file_type: verilogSource
+    files:
+    - bench/picorv32_wb_soc_tb.v
 
-[verilog]
-src_files =
-  rtl/verilog/picorv32-wb-soc.v
-  rtl/verilog/wb_intercon/wb_intercon.v
-
-include_files =
-  rtl/verilog/wb_intercon/wb_intercon.vh
-
-tb_private_src_files =
-  bench/picorv32_wb_soc_tb.v
-
-[icarus]
-iverilog_options = -DPRESCALER_PRESET_HARD -DPRESCALER_HIGH_PRESET=0 -DPRESCALER_LOW_PRESET=2 -DSIM
-depend = mt48lc16m16a2 vlog_tb_utils-1.0 wb_bfm-1.0
-
-[simulator]
-toplevel = picorv32_wb_soc_tb
+targets:
+  default:
+    filesets:
+    - verilog_src_files
+  sim:
+    default_tool: icarus
+    filesets:
+    - verilog_src_files
+    - verilog_tb_private_src_files
+    tools:
+      icarus:
+        iverilog_options:
+        - -DPRESCALER_PRESET_HARD
+        - -DPRESCALER_HIGH_PRESET=0
+        - -DPRESCALER_LOW_PRESET=2
+        - -DSIM
+    toplevel: picorv32_wb_soc_tb
+  synth:
+    filesets:
+    - verilog_src_files
