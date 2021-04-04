@@ -78,7 +78,7 @@ SOC=picorv32-wb-soc
 
 C2_BRDS=core-ep2c5-$SOC,de1-$SOC
 C3_BRDS=marsohod2-$SOC
-C4_BRDS=marsohod2bis-$SOC,marsohod2rpi-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC
+C4_BRDS=marsohod2bis-$SOC,marsohod2rpi-$SOC,core-ep4ce6-$SOC,de0-nano-$SOC,de2-115-$SOC
 M10_BRDS=marsohod3-$SOC,marsohod3bis-$SOC
 C10_BRDS=c10lp-evkit-$SOC
 
