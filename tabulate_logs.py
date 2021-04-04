@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim: ts=4:sw=4:tw=78:wrap
 
@@ -37,7 +37,7 @@ class quartus_rpt():
             m = re.search(r"^; Flow Summary", line)
             if m:
                 flowsumm = True
-                line = txt.next()
+                line = next(txt)
                 continue
 
             if flowsumm:
@@ -89,9 +89,9 @@ class quartus_rpt():
             n = re.search(r"^; Slow Model Fmax Summary", line)
             if m or n:
                 fmaxflag = True
-                line = txt.next()
-                line = txt.next()
-                line = txt.next()
+                line = next(txt)
+                line = next(txt)
+                line = next(txt)
                 continue
 
             if fmaxflag:
