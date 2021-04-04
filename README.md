@@ -37,10 +37,11 @@ Currently supported FPGA boards:
 First install fusesoc:
 
 ```
-$ sudo apt-get install python-pip
+$ sudo apt-get install -y python3-pip
 $ git clone https://github.com/olofk/fusesoc
 $ cd fusesoc
-$ sudo pip install -e .
+$ git checkout 1.12.0
+$ sudo pip3 install -e .
 ```
 
 
