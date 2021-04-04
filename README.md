@@ -61,7 +61,7 @@ $ sudo apt-get install libelf-dev
 Simulation:
 
 ```
-$ fusesoc --cores-root cores/ sim picorv32-wb-soc
+$ fusesoc --cores-root cores/ run --target sim picorv32-wb-soc
 $ gtkwave build/picorv32-wb-soc_0/sim-icarus/picorv32-wb-soc.vcd
 ```
 
@@ -72,14 +72,14 @@ Marsohod2 needs Quartus <= 13.1:
 
 ```
 $ export PATH=$PATH:/opt/altera/13.1/quartus/bin
-$ fusesoc --cores-root cores/ build marsohod2-picorv32-wb-soc
+$ fusesoc --cores-root cores/ run --build --tool quartus marsohod3-picorv32-wb-soc
 ```
 
 Marsohod3 needs Quartus >= 15.0:
 
 ```
 $ export PATH=$PATH:/opt/altera/16.0/quartus/bin
-$ fusesoc --cores-root cores/ build marsohod3-picorv32-wb-soc
+$ fusesoc --cores-root cores/ run --build --tool quartus marsohod3-picorv32-wb-soc
 ```
 
 

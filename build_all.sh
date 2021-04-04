@@ -28,7 +28,7 @@ build_quartus()
 
 	rm -rf build
 	for i in $(echo $SYSTEMS | sed "s/,/ /g"); do
-		fusesoc --cores-root cores/ build $i
+		fusesoc --cores-root cores/ run --build --tool quartus $i
 	done
 
 	rm -rf $BUILD
@@ -52,7 +52,7 @@ build_vivado()
 	source ${VIVADO_PATH}/settings64.sh
 
 	rm -rf build
-	fusesoc --cores-root cores/ build ${SYSTEM}
+	fusesoc --cores-root cores/ run --build --tool vivado ${SYSTEM}
 
 	T=build/${SYSTEM}_0/bld-vivado/${SYSTEM}_0.runs
 	RUNMELOG=${T}/synthesis/runme.log
