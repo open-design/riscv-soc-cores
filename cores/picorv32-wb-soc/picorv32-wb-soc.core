@@ -7,7 +7,7 @@ filesets:
     depend:
     - '>=::picorv32:0'
     - ::or1k_bootloaders:0.9
-    - ::uart16550:1.5.4
+    - ::uart16550:1.5.5-r1
     - ::wb_ram:1.0
     - '>=::wb_spimemio:0'
     - ::wb_sdram_ctrl:0-r2
