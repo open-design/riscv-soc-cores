@@ -9,7 +9,7 @@ src_files =
 
 [provider]
 name = url
-url = http://www.micron.com/~/media/Documents/Products/Sim%%20Model/DRAM/DRAM/4012mt48lc16m16a2.zip
+url = https://media-www.micron.com/-/media/client/global/documents/products/sim-model/dram/dram/4012mt48lc16m16a2.zip?rev=0073f543a8544cfc90139b453e734b91
 filetype = zip
 
 [icarus]
