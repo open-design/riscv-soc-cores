@@ -161,14 +161,14 @@ for (quartuss, boards) in (
             filepref = "build.q%s/%s_0/bld-quartus/%s_0" % (qv, SYSTEM, SYSTEM)
             q = quartus_rpt(filepref)
 
-            data.append(q.data_tuple())
+            data.append(["%s" % (b,)] + list(q.data_tuple()))
 
 import pandas as pd
 from tabulate import tabulate
 
 dframe = pd.DataFrame(data)
 dframe = dframe.sort_values(by=[0, 1])
-headers = [ 'Quartus', 'Chip',
+headers = [ 'Board', 'Quartus', 'Chip',
             'Total LE', 'Used LE',
             'Total pins', 'Used pins',
             'Total bits', 'Used bits',
