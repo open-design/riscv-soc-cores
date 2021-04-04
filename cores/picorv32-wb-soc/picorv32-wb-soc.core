@@ -10,7 +10,7 @@ filesets:
     - ::uart16550:1.5.5-r1
     - ::wb_ram:1.0
     - '>=::wb_spimemio:0'
-    - ::wb_sdram_ctrl:0-r2
+    - ::wb_sdram_ctrl:0-r4
     - '>=::gpio:0'
     - ::wb_intercon:1.0
     - '>=::riscv-nmon:0'
