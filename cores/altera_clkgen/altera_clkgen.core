@@ -1,12 +1,24 @@
-CAPI=1
-
-[main]
-name = altera_clkgen
-description = "Clock & reset generator IP core for Altera FPGA"
-
-[verilog]
-src_files =
-  wrapped_altpll.v
-  altpll_wb_clkgen.v
-  wrapped_altera_pll.v
-  altera_pll_wb_clkgen.v
+CAPI=2:
+description: Clock & reset generator IP core for Altera FPGA
+filesets:
+  verilog_src_files:
+    file_type: verilogSource
+    files:
+    - wrapped_altpll.v
+    - altpll_wb_clkgen.v
+    - wrapped_altera_pll.v
+    - altera_pll_wb_clkgen.v
+name: ::altera_clkgen:0
+targets:
+  default:
+    filesets:
+    - verilog_src_files
+  sim:
+    filesets:
+    - verilog_src_files
+    - verilog_tb_src_files
+    - verilog_tb_private_src_files
+    toplevel: orpsoc_tb
+  synth:
+    filesets:
+    - verilog_src_files
