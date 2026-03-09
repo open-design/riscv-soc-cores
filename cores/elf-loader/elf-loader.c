@@ -26,6 +26,10 @@
 #include <gelf.h>
 #include <fcntl.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 uint8_t big_endian;
 
 uint8_t *dump_program_data(Elf *elf_object, int *size)
@@ -47,18 +51,18 @@ uint8_t *dump_program_data(Elf *elf_object, int *size)
 	if (phdr_num == 0)
 		return NULL;
 
-	for (int i = 0; i < phdr_num; i++) {
+	for (size_t i = 0; i < phdr_num; i++) {
 		if (gelf_getphdr(elf_object, i, &phdr) != &phdr) {
 			printf("Problem during ELF parsing\n");
 			return NULL;
 		}
 
-		printf("Program header %d: addr 0x%08X,", i, (unsigned int)phdr.p_paddr);
+		printf("Program header %lu: addr 0x%08X,", i, (unsigned int)phdr.p_paddr);
 		printf(" size 0x%08X\n", (unsigned int)phdr.p_filesz);
 
 		if (phdr.p_paddr + phdr.p_filesz >= max_paddr) {
 			max_paddr = phdr.p_paddr + phdr.p_filesz;
-			buffer = realloc(buffer, max_paddr);
+			buffer = (uint8_t *)realloc(buffer, max_paddr);
 		}
 
 		data = elf_getdata_rawchunk(elf_object, phdr.p_offset, phdr.p_filesz, ELF_T_BYTE);
@@ -114,7 +118,7 @@ uint8_t *dump_section_data(Elf *elf_object, int *size)
 
 			if (shdr.sh_addr + shdr.sh_size >= max_saddr) {
 				max_saddr = shdr.sh_addr + shdr.sh_size;
-				buffer = realloc(buffer, max_saddr);
+				buffer = (uint8_t *)realloc(buffer, max_saddr);
 			}
 
 			data = elf_getdata(cur_section, data);
@@ -200,24 +204,6 @@ unsigned short read_16(uint8_t *bin_file, unsigned int address)
 	return (bin_file[address] << 8) | (bin_file[address + 1]);
 }
 
-/*
-int main(int argc , char ** argv)
-{
-	int i;
-	int size;
-	uint8_t *buf = load_elf_file(argv[1], &size);
-
-	for (i = 0; i < 128; i++) {
-		if (!(i%16))
-			printf("\n0x%04X: ", 0x100 + i);
-		printf("%02X ", buf[0x100 + i]);
-	}
-	printf("\n");
-
-	printf("Size = %x\n", size);
-
-	free(buf);
-
-	return 0;
+#ifdef __cplusplus
 }
-*/
+#endif

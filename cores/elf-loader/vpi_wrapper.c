@@ -22,21 +22,21 @@
 #include "elf-loader.h"
 
 //install a callback on simulation reset which calls setup
-void setup_reset_callbacks();
+void setup_reset_callbacks(void);
 //install a callback on simulation compilation finish
-void setup_endofcompile_callbacks();
+void setup_endofcompile_callbacks(void);
 //install a callback on simulation finish
-void setup_finish_callbacks();
+void setup_finish_callbacks(void);
 //callback function which closes and clears the socket file descriptors
 // on simulation reset
-void sim_reset_callback();
-void sim_endofcompile_callback();
-void sim_finish_callback();
+void sim_reset_callback(void);
+void sim_endofcompile_callback(void);
+void sim_finish_callback(void);
 
 uint8_t *bin_file;
 int size;
 
-void elf_load_file() {
+void elf_load_file(void) {
   vpiHandle func_h, args_iter, arg_h;
   struct t_vpi_value argval;
 
@@ -63,7 +63,7 @@ void elf_load_file() {
   //vpi_printf("elf_load_file done\n");
 }
 
-void elf_get_size() {
+void elf_get_size(void) {
   vpiHandle func_h;
   struct t_vpi_value argval;
 
@@ -80,7 +80,7 @@ void elf_get_size() {
   //vpi_printf("elf_get_size done\n");
 }
 
-void elf_read_32() {
+void elf_read_32(void) {
   vpiHandle func_h, arg_h, args_iter;
   struct t_vpi_value argval;
   unsigned int address;
@@ -109,7 +109,7 @@ void elf_read_32() {
   //vpi_printf("elf_read_32 done\n");
 }
 
-void elf_read_16() {
+void elf_read_16(void) {
   vpiHandle func_h, arg_h, args_iter;
   struct t_vpi_value argval;
   unsigned int address;
@@ -137,7 +137,7 @@ void elf_read_16() {
   //vpi_printf("elf_read_16 done\n");
 }
 
-void setup_user_functions() {
+void setup_user_functions(void) {
   s_vpi_systf_data task_data_s;
   p_vpi_systf_data task_data_p = &task_data_s;
 
@@ -173,7 +173,7 @@ void setup_user_functions() {
 
 }  
 
-void setup_reset_callbacks()
+void setup_reset_callbacks(void)
 {
 
   // here we setup and install callbacks for
@@ -181,15 +181,17 @@ void setup_reset_callbacks()
   // the simulator upon simulation start and
   // reset
 
-  static s_vpi_time time_s = {vpiScaledRealTime};
-  static s_vpi_value value_s = {vpiBinStrVal};
+  static s_vpi_time time_s = {vpiScaledRealTime, 0, 0, 0.0};
+  static s_vpi_value value_s = {vpiBinStrVal, {}};
   static s_cb_data cb_data_s =
     {
       cbEndOfReset, // or start of simulation - initing socket fds etc
       (void *)sim_reset_callback,
       NULL,
       &time_s,
-      &value_s
+      &value_s,
+      0,
+      0
     };
 
   cb_data_s.obj = NULL;  /* trigger object */
@@ -201,7 +203,7 @@ void setup_reset_callbacks()
 
 }
 
-void sim_reset_callback()
+void sim_reset_callback(void)
 {
 
   // nothing to do!
@@ -210,21 +212,23 @@ void sim_reset_callback()
 
 }
 
-void setup_endofcompile_callbacks()
+void setup_endofcompile_callbacks(void)
 {
 
   // here we setup and install callbacks for
   // simulation finish
 
-  static s_vpi_time time_s = {vpiScaledRealTime};
-  static s_vpi_value value_s = {vpiBinStrVal};
+  static s_vpi_time time_s = {vpiScaledRealTime, 0, 0, 0.0};
+  static s_vpi_value value_s = {vpiBinStrVal, {}};
   static s_cb_data cb_data_s =
     {
       cbEndOfCompile, // end of compile
       (void *)sim_endofcompile_callback,
       NULL,
       &time_s,
-      &value_s
+      &value_s,
+      0,
+      0
     };
 
   cb_data_s.obj = NULL;  /* trigger object */
@@ -236,27 +240,29 @@ void setup_endofcompile_callbacks()
 
 }
 
-void sim_endofcompile_callback()
+void sim_endofcompile_callback(void)
 {
   return;
 }
 
 
-void setup_finish_callbacks()
+void setup_finish_callbacks(void)
 {
 
   // here we setup and install callbacks for
   // simulation finish
 
-  static s_vpi_time time_s = {vpiScaledRealTime};
-  static s_vpi_value value_s = {vpiBinStrVal};
+  static s_vpi_time time_s = {vpiScaledRealTime, 0, 0, 0.0};
+  static s_vpi_value value_s = {vpiBinStrVal, {}};
   static s_cb_data cb_data_s =
     {
       cbEndOfSimulation, // end of simulation
       (void *)sim_finish_callback,
       NULL,
       &time_s,
-      &value_s
+      &value_s,
+      0,
+      0
     };
 
   cb_data_s.obj = NULL;  /* trigger object */
@@ -268,14 +274,14 @@ void setup_finish_callbacks()
 
 }
 
-void sim_finish_callback()
+void sim_finish_callback(void)
 {
   free(bin_file);
   return;
 }
 
 
-void (*vlog_startup_routines[ ] ) () = {
+void (*vlog_startup_routines[ ] ) (void) = {
 #ifdef CDS_VPI
   // this installs a callback on simulator reset - something which
   // icarus does not do, so we only do it for cadence currently

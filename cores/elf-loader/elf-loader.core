@@ -1,25 +1,44 @@
-CAPI=1
-[main]
-description = "Generic ELF loader"
+CAPI=2:
 
-[vpi]
-src_files = elf-loader.c vpi_wrapper.c
-include_files = elf-loader.h
-libs = -lelf
+name : ::elf-loader:1.0.3
+description : Generic ELF loader
 
-[verilator]
-src_files     = elf-loader.c
-include_files = elf-loader.h
-libs          = -lelf
+filesets :
+  elf_loader :
+    files : [elf-loader.c, elf-loader.h : {is_include_file : true}]
+    file_type : cSource
 
-[plusargs]
-elf-load = file ELF file to preload to memory
+  vpi :
+    files : [vpi_wrapper.c]
+    file_type : cSource
 
-[parameter elf-load]
-datatype    = file
-description = ELF file to preload to memory
-paramtype   = plusarg
-scope       = public
+  check_libelf:
+    files: [check_libelf.sh : {file_type: user, copyto: check_libelf.sh}]
 
-[scripts]
-pre_build_scripts = check_libelf.sh
+vpi :
+  elf_loader_vpi :
+    filesets : [elf_loader, vpi]
+    libs : [elf]
+
+targets :
+  default :
+    hooks :
+      pre_build : [check_libelf]
+    filesets : ["tool_verilator? (elf_loader)", check_libelf]
+    parameters : ["!tool_verilator? (elf_load)"]  # for verilator the argument is --elf-load, not a plusarg
+    tools :
+      verilator :
+        libs : [-lelf]
+    vpi : [elf_loader_vpi]
+
+
+parameters :
+  elf_load :
+    datatype : file
+    description : ELF file to preload to memory
+    paramtype : plusarg
+    scope : public
+
+scripts :
+  check_libelf :
+    cmd : [/bin/sh, check_libelf.sh]
