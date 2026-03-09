@@ -1,0 +1,30 @@
+CAPI=2:
+
+name: ::mt48lc16m16a2:2.1-r1
+description: Micron 256Mb SDRAM Verilog model
+
+filesets:
+  rtl_files:
+    files:
+     - mt48lc16m16a2.v
+     - mt48lc16m16a2_wrapper.v
+    file_type: verilogSource
+    depend:
+     - wiredelay
+
+  sim_deps:
+    depend:
+     - elf-loader
+
+targets:
+  default: &default
+    description: Default fileset
+    filesets: [rtl_files]
+
+  sim:
+    <<: *default
+    description: Elf load simulator
+    toplevel: mt48lc16m16a2_wrapper
+    filesets_append:
+      - sim_deps
+    default_tool: icarus
