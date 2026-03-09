@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
 module tb_clkgen(
-	output wb_clk_o,
+	output reg wb_clk_o,
 	output wb_rst_o,
 
-	output sdram_clk_o,
+	output reg sdram_clk_o,
 	output sdram_rst_o
 );
 
@@ -12,14 +12,12 @@ module tb_clkgen(
 	reg sync_rst_n = 0;
 
 	// 50 MHz
-	reg wb_clk_o = 0;
 	always
 	begin
 		#10 wb_clk_o = !wb_clk_o;
 	end
 
 	// 100 MHz
-	reg sdram_clk_o = 0;
 	always
 	begin
 		#5 sdram_clk_o = !sdram_clk_o;
@@ -27,6 +25,9 @@ module tb_clkgen(
 
 	initial
 	begin
+		wb_clk_o = 0;
+		sdram_clk_o = 0;
+
 		#2 sync_rst_n = 1;
 		#3 async_rst = 1;
 		#27 async_rst = 0;
