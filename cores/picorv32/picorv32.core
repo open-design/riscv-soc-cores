@@ -36,7 +36,7 @@ targets:
     toplevel:
       - "tool_verilator?  (picorv32_wrapper)"
       - "!tool_verilator? (testbench)"
-      
+
     tools:
       verilator :
         cli_parser : fusesoc
@@ -76,3 +76,9 @@ parameters:
   verbose:
     datatype : bool
     paramtype : plusarg
+
+provider:
+  name   : github
+  user   : YosysHQ
+  repo   : picorv32
+  version: 87c89acc18994c8cf9a2311e871818e87d304568
