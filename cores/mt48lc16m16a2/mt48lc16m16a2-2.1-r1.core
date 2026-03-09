@@ -11,9 +11,6 @@ filesets:
     file_type: verilogSource
     depend:
      - wiredelay
-
-  sim_deps:
-    depend:
      - elf-loader
 
 targets:
