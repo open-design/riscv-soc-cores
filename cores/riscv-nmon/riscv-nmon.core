@@ -1,7 +1,23 @@
-CAPI=1
-[main]
-
-[verilog]
-include_files =
-  nmon_picorv32-wb-soc_10MHz_9600.txt
-  nmon_picorv32-wb-soc_24MHz_115200.txt
+CAPI=2:
+filesets:
+  verilog_src_files:
+    file_type: verilogSource
+    files:
+    - nmon_picorv32-wb-soc_10MHz_9600.txt:
+        is_include_file: true
+    - nmon_picorv32-wb-soc_24MHz_115200.txt:
+        is_include_file: true
+name: ::riscv-nmon:0
+targets:
+  default:
+    filesets:
+    - verilog_src_files
+  sim:
+    filesets:
+    - verilog_src_files
+    - verilog_tb_src_files
+    - verilog_tb_private_src_files
+    toplevel: orpsoc_tb
+  synth:
+    filesets:
+    - verilog_src_files
