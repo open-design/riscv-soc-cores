@@ -1,4 +1,7 @@
 CAPI=2:
+
+name: ::riscv-nmon:0
+
 filesets:
   verilog_src_files:
     file_type: verilogSource
@@ -7,7 +10,7 @@ filesets:
         is_include_file: true
     - nmon_picorv32-wb-soc_24MHz_115200.txt:
         is_include_file: true
-name: ::riscv-nmon:0
+
 targets:
   default:
     filesets:
@@ -15,9 +18,6 @@ targets:
   sim:
     filesets:
     - verilog_src_files
-    - verilog_tb_src_files
-    - verilog_tb_private_src_files
-    toplevel: orpsoc_tb
   synth:
     filesets:
     - verilog_src_files
