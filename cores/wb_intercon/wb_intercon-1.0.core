@@ -2,7 +2,7 @@ CAPI=1
 [main]
 description = Wishbone Bus Interconnect utilities
 depend =
- verilog-arbiter-r1
+ ::verilog-arbiter:0-r2
  verilog_utils
  wb_common
 simulators = icarus modelsim
