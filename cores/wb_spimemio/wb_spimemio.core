@@ -1,10 +1,22 @@
-CAPI=1
-
-[main]
-name = wb_spimemio
-description = memory mapped SPI flash controller
-
-[verilog]
-src_files =
-  wb_spimemio.v
-  spiflash.v
+CAPI=2:
+description: memory mapped SPI flash controller
+filesets:
+  verilog_src_files:
+    file_type: verilogSource
+    files:
+    - wb_spimemio.v
+    - spiflash.v
+name: ::wb_spimemio:0
+targets:
+  default:
+    filesets:
+    - verilog_src_files
+  sim:
+    filesets:
+    - verilog_src_files
+    - verilog_tb_src_files
+    - verilog_tb_private_src_files
+    toplevel: orpsoc_tb
+  synth:
+    filesets:
+    - verilog_src_files
