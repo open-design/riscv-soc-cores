@@ -1,21 +1,19 @@
 CAPI=2:
+
+name: ::gpio:0
+
 description: Simple 8-bit gpio core
+
 filesets:
   verilog_src_files:
     file_type: verilogSource
     files:
     - gpio.v
-name: ::gpio:0
+
 targets:
   default:
     filesets:
     - verilog_src_files
-  sim:
-    filesets:
-    - verilog_src_files
-    - verilog_tb_src_files
-    - verilog_tb_private_src_files
-    toplevel: orpsoc_tb
   synth:
     filesets:
     - verilog_src_files
