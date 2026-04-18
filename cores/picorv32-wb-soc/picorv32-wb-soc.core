@@ -6,7 +6,7 @@ filesets:
   verilog_src_files:
     depend:
     - '>=::picorv32:0'
-    - ::or1k_bootloaders:0.9
+    - ::or1k_bootloaders:0.9.1-r1
     - ::uart16550:1.5.5-r1
     - ::wb_ram:1.0
     - '>=::wb_spimemio:0'
