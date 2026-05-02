@@ -23,7 +23,7 @@ filesets:
   verilog_tb_private_src_files:
     depend:
     - '>=::mt48lc16m16a2:0'
-    - ::vlog_tb_utils:1.0
+    - fusesoc:utils:vlog_tb_utils:1.1.1
     - ::wb_bfm:1.0
     file_type: verilogSource
     files:

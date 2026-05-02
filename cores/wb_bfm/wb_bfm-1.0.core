@@ -1,7 +1,7 @@
 CAPI=1
 [main]
 description = Wishbone BFM
-depend = vlog_tb_utils-1.0 wb_common
+depend = fusesoc:utils:vlog_tb_utils:1.1.1 wb_common
 simulators = icarus modelsim
 
 [verilog]

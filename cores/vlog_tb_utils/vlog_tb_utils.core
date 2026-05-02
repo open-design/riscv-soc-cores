@@ -1,38 +1,44 @@
-CAPI=1
-[main]
-description = "Verilog test bench utility functions"
+CAPI=2:
 
-[verilog]
-tb_src_files =
- vlog_functions.v
- vlog_tb_utils.v
+name : fusesoc:utils:vlog_tb_utils:1.1.1
+description : Verilog test bench utilities
+license : ISC
 
-[plusargs]
-heartbeat = int Display a heartbeat message every n*heartbeat
-testcase = str Name of testcase (Used for VCD filename)
-timeout = int "Abort test case after n cycles"
-vcd     = bool "Enable VCD logging"
+filesets:
+  tb_files:
+    files:
+      - vlog_functions.v
+      - vlog_tap_generator.v
+      - vlog_tb_utils.v
+    file_type : verilogSource
 
-[parameter heartbeat]
-datatype    = int
-description = Display a heartbeat message every n*heartbeat time unit
-paramtype   = plusarg
-scope       = public
+targets:
+  default:
+    filesets : [tb_files]
+    parameters : [heartbeat, tapfile, testcase, timeout, vcd]
 
-[parameter testcase]
-datatype    = str
-description = Name of testcase (Used for VCD filename)
-paramtype   = plusarg
-scope       = public
+parameters:
+  heartbeat:
+    datatype    : int
+    description : Display a heartbeat message every n*heartbeat time unit
+    paramtype   : plusarg
 
-[parameter timeout]
-datatype    = int
-description = Abort test case after n cycles
-paramtype   = plusarg
-scope       = public
+  tapfile:
+    datatype    : str
+    description : Name of TAP file
+    paramtype   : plusarg
 
-[parameter vcd]
-datatype    = bool
-description = Enable VCD logging
-paramtype   = plusarg
-scope       = public
+  testcase:
+    datatype    : str
+    description : Name of testcase (Used for VCD filename)
+    paramtype   : plusarg
+
+  timeout:
+    datatype    : int
+    description : Abort test case after n cycles
+    paramtype   : plusarg
+
+  vcd:
+    datatype    : bool
+    description : Enable VCD logging
+    paramtype   : plusarg
