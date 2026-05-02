@@ -6,7 +6,6 @@ module picorv32_wb_soc #(
 	parameter BOOTROM_MEMFILE = "",
 	parameter BOOTROM_MEMDEPTH = 1024,
 
-	parameter SRAM0_TECHNOLOGY = "GENERIC",
 	parameter SRAM0_MEMDEPTH = 16384,
 
 	parameter SDRAM_CLK_FREQ_MHZ	= 100,	// sdram_clk freq in MHZ
@@ -136,7 +135,6 @@ module picorv32_wb_soc #(
 	);
 
 	wb_ram #(
-		.TECHNOLOGY (SRAM0_TECHNOLOGY),
 		.depth (SRAM0_MEMDEPTH)
 	)
 	sram0 (
