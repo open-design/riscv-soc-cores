@@ -12,7 +12,7 @@ filesets:
     - '>=::wb_spimemio:0'
     - ::wb_sdram_ctrl:0-r4
     - '>=::gpio:0'
-    - ::wb_intercon:1.0
+    - ::wb_intercon:1.2.2-r1
     - '>=::riscv-nmon:0'
     file_type: verilogSource
     files:
