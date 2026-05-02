@@ -24,7 +24,7 @@ filesets:
     depend:
     - '>=::mt48lc16m16a2:0'
     - fusesoc:utils:vlog_tb_utils:1.1.1
-    - ::wb_bfm:1.0
+    - ::wb_bfm:1.2.1-r1
     file_type: verilogSource
     files:
     - bench/picorv32_wb_soc_tb.v
