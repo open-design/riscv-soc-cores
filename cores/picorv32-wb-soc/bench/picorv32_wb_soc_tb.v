@@ -101,7 +101,7 @@ module picorv32_wb_soc_tb;
 	picorv32_wb_soc #(
 		.SIM (1),
 		.PROGADDR_RESET (32'h 0000_0000),
-		.BOOTROM_MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt"),
+		.BOOTROM_MEMFILE ("src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt"),
 		.BOOTROM_MEMDEPTH (1024),
 
 		// MT48LC4M16A2
@@ -167,7 +167,7 @@ module picorv32_wb_soc_tb;
 	);
 
 	spiflash #(
-		.MEMFILE ("../src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt")
+		.MEMFILE ("src/riscv-nmon_0/nmon_picorv32-wb-soc_24MHz_115200.txt")
 	)
 	spiflash0 (
 		.spi_cs (spi0_cs0),
