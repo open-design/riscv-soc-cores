@@ -40,7 +40,6 @@ First install fusesoc:
 $ sudo apt-get install -y python3-pip
 $ git clone https://github.com/olofk/fusesoc
 $ cd fusesoc
-$ git checkout 1.12.0
 $ sudo pip3 install -e .
 ```
 
