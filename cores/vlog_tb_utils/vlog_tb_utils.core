@@ -2,7 +2,6 @@ CAPI=2:
 
 name : fusesoc:utils:vlog_tb_utils:1.1.1
 description : Verilog test bench utilities
-license : ISC
 
 filesets:
   tb_files:
