@@ -1,24 +1,39 @@
-CAPI=1
-
-[main]
-name = marsohod2bis-picorv32-wb-soc
-description = RISC-V SoC for Marsohod2bis
-
-depend =
-  altera_clkgen
-  picorv32-wb-soc
-  riscv-nmon
-
-backend = quartus
-
-[quartus]
-family = "Cyclone IV E"
-device = EP4CE6E22C8
-sdc_files = data/marsohod2.sdc
-tcl_files = data/marsohod2bis-pinmap.tcl
-            data/options.tcl
-top_module = marsohod2bis_picorv32_wb_soc
-
-[verilog]
-src_files =
-  rtl/verilog/marsohod2bis_picorv32_wb_soc.v
+CAPI=2:
+description: RISC-V SoC for Marsohod2bis
+filesets:
+  backend_files:
+    file_type: tclSource
+    files:
+    - data/marsohod2.sdc:
+        file_type: SDC
+    - data/marsohod2bis-pinmap.tcl
+    - data/options.tcl
+  verilog_src_files:
+    depend:
+    - '>=::altera_clkgen:0'
+    - '>=::picorv32-wb-soc:0'
+    - '>=::riscv-nmon:0'
+    file_type: verilogSource
+    files:
+    - rtl/verilog/marsohod2bis_picorv32_wb_soc.v
+name: ::marsohod2bis-picorv32-wb-soc:0
+targets:
+  default:
+    filesets:
+    - verilog_src_files
+  sim:
+    filesets:
+    - verilog_src_files
+    - verilog_tb_src_files
+    - verilog_tb_private_src_files
+    toplevel: orpsoc_tb
+  synth:
+    default_tool: quartus
+    filesets:
+    - verilog_src_files
+    - backend_files
+    tools:
+      quartus:
+        device: EP4CE6E22C8
+        family: Cyclone IV E
+    toplevel: marsohod2bis_picorv32_wb_soc
